@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Hind&family=Kotta+One&family=Nokora:wght@700&family=Noticia+Text&display=swap');
+
+.navbar nav{
+    width: 100%;
+    height: 100px;
+    background-color: #03001c;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 99999;
+}
+
+.navbar #logo{
+    text-decoration: none;
+    width: 120px;
+    height: 70px;
+    font-size: 70px;
+    font-family: 'Acme', sans-serif;
+    color: rgba(255,0,0,0.8500000238418579);
+    position: relative;
+    left: 200px;
+    bottom: 5px;
+}
+
+.navbar ul{
+    width: 550px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    position: relative;
+    left: 40px;
+}
+
+.navbar ul li a{
+    font-size: 16px;
+    text-decoration: none;
+    font-family: 'Hind', sans-serif;
+    color: rgba(255,255,255,0.8500000238418579);
+}
+
+.navbar ul li a:hover{
+    color: rgba(219, 214, 214, 0.50);
+}
+
+.navbar .nav-but{
+    width: 200px;
+    height: 50px;
+    /* background-color: #fff; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    right: 100px;
+}
+
+.navbar .nav-but button{
+    width: 90px;
+    height: 40px;
+    border-radius: 5px;
+    font-family: 'Hind', sans-serif;
+    font-size: 16px;
+    background-color: #03001c;
+}
+
+.navbar .nav-but .login-but{
+    color:rgba(255,255,255,0.8500000238418579);
+    border: 2px solid rgba(252,183,101,0.8500000238418579);
+}
+
+.navbar .nav-but .regis-but{
+    color:rgba(255,255,255,0.8500000238418579);
+    border: 2px solid rgba(252,183,101,0.8500000238418579);
+}
+
+.navbar .nav-but .login-but:hover{
+    background-color: rgba(252,183,101);
+    border: 2px solid rgba(255,255,255,0.8500000238418579);
+    color: rgba(255,255,255,0.8500000238418579);
+}
+
+.navbar .nav-but .regis-but:hover{
+    background-color: rgba(252,183,101);
+    border: 2px solid rgba(255,255,255,0.8500000238418579);
+    color: rgba(255,255,255,0.8500000238418579);
+}
