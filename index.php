@@ -1,3 +1,7 @@
+<?php
+    require_once "lib/lib-login.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,11 +11,17 @@
 
     <!-- Title/Icon/Link -->
     <?php require_once"php/icon_link.php";?>
-    <title>F-TIX | Home Page</title>
+    <title>F-TIX | Home</title>
 
     <!-- Style -->
     <link rel="stylesheet" href="css/all.css">
-    <link rel="stylesheet" href="css/navbar.css">
+    <?php
+        if (cekLogin()) { ?>
+            <link rel="stylesheet" href="css/navbar-login.css">
+        <?php }else{ ?>
+            <link rel="stylesheet" href="css/navbar.css">
+        <?php }
+    ?>
     <link rel="stylesheet" href="css/landing-page.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
@@ -21,8 +31,13 @@
     <!-- Bagian 1 - Navbar & Slider -->
     <div class="bag-01">
         <!-- Navbar -->
-        <?php include"php/navbar.php";?>
-
+        <?php 
+        if (cekLogin()) {
+            require"php/navbar-login.php";
+        }else{
+            require"php/navbar.php";
+        }
+        ?>
         <!-- Slider -->
         <div class="new-movie">
             <div class="new1">
@@ -109,5 +124,6 @@
 
     <!-- Script JS -->
     <script src="js/vid-nav.js"></script>
+    <script src="js/navbar-login.js"></script>
 </body>
 </html>
