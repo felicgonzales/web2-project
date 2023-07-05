@@ -1,3 +1,12 @@
+<?php
+    require_once "lib/lib-db-users.php";
+    $message = "";
+    if(isset($_SESSION['same_pass'])) {
+        $message = $_SESSION['same_pass'];
+        unset($_SESSION['same_pass']);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,6 +43,9 @@
                 <ion-icon name="lock-closed-outline"></ion-icon>
                 <label for="Password">Password</label>
                 <input type="password" name="password" required>
+            </div>
+            <div class="input-1">
+                <label for="flash-message"><?php echo $message; ?></label>
             </div>
             <div class="input">
                 <ion-icon name="lock-closed-outline"></ion-icon>

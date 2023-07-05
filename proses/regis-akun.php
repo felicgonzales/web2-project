@@ -1,7 +1,7 @@
 <?php
 
 require_once "../lib/config.php";
-require_once "../lib/lib-db-akun.php";
+require_once "../lib/lib-db-users.php";
 
 $username = $_POST['username'];
 $email = $_POST['email'];

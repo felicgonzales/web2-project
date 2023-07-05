@@ -1,0 +1,51 @@
+body {
+  background: #03001c;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #0081cb;
+}
+
+.profile-button {
+  background: #342c7e;
+  box-shadow: none;
+  border: none;
+}
+
+.profile-button:hover {
+  background: #57527d;
+}
+
+.profile-button:focus {
+  background: #03001c;
+  box-shadow: none;
+}
+
+.profile-button:active {
+  background: #03001c;
+  box-shadow: none;
+}
+
+.back:hover {
+  color: #0081cb;
+  cursor: pointer;
+}
+
+.row.mt-2 .col-md-6 {
+  position: absolute;
+  right: 26%;
+}
+
+.row.mt-3 .col-md-6 {
+  position: absolute;
+  right: 26%;
+}
+
+input#pr {
+  margin-left: 30px;
+}
+
+.col-md-4.border-right {
+  background-color: #1f456e;
+}

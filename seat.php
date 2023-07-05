@@ -46,9 +46,8 @@
           <div class="seat">A7</div>
           <div class="seat">A8</div>
           <div class="seat">A9</div>
-          <div class="seat">A10</div>
-          <div class="seat">A11</div>
-          <div class="seat">A12</div>
+          
+          
         </div>
         <div class="row">
           <div class="seat">B1</div>
@@ -60,87 +59,71 @@
           <div class="seat">B7</div>
           <div class="seat">B8</div>
           <div class="seat">B9</div>
-          <div class="seat">B10</div>
-          <div class="seat">B11</div>
-          <div class="seat">B12</div>
+          
         </div>
         <div class="row">
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
+          
+          <div class="seat">C1</div>
+          <div class="seat">C2</div>
+          <div class="seat">C3</div>
 
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat occupied"></div>
-          <div class="seat occupied"></div>
-          <div class="seat"></div>
+          <div class="seat">C4</div>
+          <div class="seat">C5</div>
+          <div class="seat">C6</div>
+          <div class="seat occupied">C7</div>
+          <div class="seat occupied">C8</div>
+          <div class="seat">C9</div>
         </div>
 
         <div class="row">
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat occupied"></div>
-          <div class="seat occupied"></div>
-          <div class="seat"></div>
+          <div class="seat">D1</div>
+          <div class="seat">D2</div>
+
+          <div class="seat">D3</div>
+          <div class="seat">D4</div>
+          <div class="seat">D5</div>
+          <div class="seat">D6</div>
+          <div class="seat occupied">D7</div>
+          <div class="seat occupied">D8</div>
+          <div class="seat">D9</div>
         </div>
         <div class="row">
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat occupied"></div>
-          <div class="seat occupied"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
+          
+          <div class="seat">E1</div>
+          <div class="seat">E2</div>
+          <div class="seat">E3</div>
+          <div class="seat">E4</div>
+          <div class="seat">E5</div>
+          <div class="seat occupied">E6</div>
+          <div class="seat occupied">E7</div>
+          <div class="seat">E8</div>
+          <div class="seat">E9</div>
         </div>
         <div class="row">
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat occupied"></div>
-          <div class="seat occupied"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
+          
+          <div class="seat">F1</div>
+          <div class="seat">F2</div>
+          <div class="seat">F3</div>
+          <div class="seat">F4</div>
+          <div class="seat">F5</div>
+          <div class="seat occupied">F6</div>
+          <div class="seat occupied">F7</div>
+          <div class="seat">F8</div>
+          <div class="seat">F9</div>
         </div>
         <div class="row">
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat occupied"></div>
-          <div class="seat occupied"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
-          <div class="seat occupied"></div>
-          <div class="seat occupied"></div>
-          <div class="seat"></div>
-          <div class="seat"></div>
+          <div class="seat">G1</div>
+          <div class="seat">G2</div>
+
+          <div class="seat">G3</div>
+          <div class="seat">G4</div>
+          <div class="seat occupied">G5</div>
+          <div class="seat occupied">G6</div>
+          <div class="seat">G7</div>
+          
+          <div class="seat occupied">G8</div>
+          <div class="seat occupied">G9</div>
+         
         </div>
 
         <button class="btn" onclick="parent.location='food.html'">
