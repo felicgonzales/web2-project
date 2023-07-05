@@ -107,3 +107,21 @@ body{
     text-decoration: underline;
     color: rgba(255,0,0,0.8500000238418579);
 }
+
+.input-1{
+    width: 350px;
+    margin: 0 auto;
+    position: relative;
+    top: 35px;
+    /* border-bottom: 2px solid #fff; */
+    padding-top: 20px;
+}
+
+.input-1 label{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: red;
+    font-size: 1em;
+    pointer-events: none;
+}

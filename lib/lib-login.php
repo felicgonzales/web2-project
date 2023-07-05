@@ -10,7 +10,7 @@ function cekLogin(){
 }
 
 function isAdmin(){
-    if($_SESSION['level'] == 'admin'){
+    if($_SESSION['role'] == 'Admin'){
         return true;
     } else {
         return false;
