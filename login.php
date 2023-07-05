@@ -1,3 +1,12 @@
+<?php
+    require_once "lib/lib-db-users.php";
+    $message = "";
+    if(isset($_SESSION['pass'])) {
+        $message = $_SESSION['pass'];
+        unset($_SESSION['pass']);
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +33,9 @@
                 <ion-icon name="person-outline"></ion-icon>
                 <label for="Username">Username</label>
                 <input type="text" name="username" required>
+            </div>
+            <div class="input-1">
+                <label for="flash-message"><?php echo $message; ?></label>
             </div>
             <div class="input">
                 <ion-icon name="lock-closed-outline"></ion-icon>

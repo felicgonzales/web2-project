@@ -1,3 +1,11 @@
+<?php
+    require_once "lib/lib-db-users.php";
+    $message = "";
+    if(isset($_SESSION['username'])) {
+        $message = $_SESSION['username'];
+    }
+?>
+
 <div class="navbar-login">
     <nav>
         <a href="index.php" id="logo">f-tix</a>
@@ -8,7 +16,7 @@
             <li><a href="information.php">INFORMATION</a></li>
         </ul>
         <div class="nav-profile">
-            <p id="user-profile">Username</p>|
+            <p id="user-profile"><?php echo $message; ?></p>|
             <i class="fa-sharp fa-solid fa-user icon-profile"></i>
             <div class="drop-down">
                 <ul class="drop-down">

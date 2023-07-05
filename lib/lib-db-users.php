@@ -15,6 +15,7 @@ function cariAkun($username, $password){
         $row = $query->fetch(PDO::FETCH_ASSOC);
         if(password_verify($password, $row['password'])){
             $_SESSION["login"] = true;
+            $_SESSION["username"] = $username;
             header("location: ../index.php");
             exit;
         }
