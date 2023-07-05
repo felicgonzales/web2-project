@@ -7,7 +7,7 @@ $user	= "root";
 $password = "";
 
 //Buka Koneksi
-$conn = new PDO('mysql:host=localhost;dbname=f-tix', $user, $password);
+$conn = new PDO('mysql:host=localhost;dbname=', $user, $password);
 
 if(!$conn)
 	die("Tidak terkoneksi ke database");

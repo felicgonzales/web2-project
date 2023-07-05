@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2023 at 04:35 PM
+-- Generation Time: Jul 05, 2023 at 04:55 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,44 +24,48 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `akun`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `akun` (
-  `id` int(255) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `email` text NOT NULL,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
   `password` text NOT NULL,
-  `level` text NOT NULL
+  `email` varchar(100) NOT NULL,
+  `gender` text NOT NULL,
+  `no_telp` int(13) NOT NULL,
+  `role` enum('Admin','Users') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dumping data for table `akun`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `akun` (`id`, `username`, `email`, `password`, `level`) VALUES
-(13, 'felgonz', 'felgonz@gmail.com', '$2y$10$bjUnFFUN60aD8w2GPHHoc.5Eoi.XalnYWqeuTo.rtM01o7fbgnDnW', 'member');
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `gender`, `no_telp`, `role`) VALUES
+(1, 'felicgon', '$2y$10$DKB5V2NyUi3d6KveOFd/vegsicuL2D92b.NBqfSkNT72XEKwBDkfW', 'felicgon@gmail.com', '', 0, 'Users'),
+(2, 'felic', '$2y$10$OfRMg.JesPbPed0S8Tufme/k2Jw894NgNmUS.0VmJ9K3264ehBHJ2', 'gonzales@gmail.com', '', 0, 'Users');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `akun`
+-- Indexes for table `users`
 --
-ALTER TABLE `akun`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `username` (`username`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `akun`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `akun`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

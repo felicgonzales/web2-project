@@ -24,7 +24,7 @@
 <body>
     <!-- Bagian 1 - Form -->
     <form action="" method="post" enctype="multipart/form-data">
-        <label for="name">Name:</label>
+        <label for="name">Username:</label>
         <input type="text" id="name" name="name" placeholder="Enter your name">
         
         <label for="email">Email:</label>
@@ -33,7 +33,7 @@
         <label for="phone">Telephone Number:</label>
         <input type="tel" id="phone" name="phone" placeholder="Enter your telephone number">
         
-        <label for="city">City:</label>
+        <label for="city">Gender:</label>
         <input type="text" id="city" name="city" placeholder="Enter your city">
         
         <input type="submit" value="Save Changes">

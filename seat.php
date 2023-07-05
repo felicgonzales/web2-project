@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>seat page</title>
-    <link rel="stylesheet" href="seat.css" />
+    <link rel="stylesheet" href="css/seat.css" />
   </head>
   <body>
     <div class="movie-container">
@@ -153,6 +153,6 @@
       </div>
     </div>
 
-    <script src="seat.js"></script>
+    <script src="js/seat.js"></script>
   </body>
 </html>
