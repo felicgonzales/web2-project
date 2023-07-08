@@ -3,7 +3,7 @@
         <a href="index.php" id="logo">f-tix</a>
         <ul>
             <li><a href="index.php">HOME</a></li>
-            <li><a href="#">NOW SHOWING</a></li>
+            <li><a href="now-showing.php">NOW SHOWING</a></li>
             <li><a href="ticket.php">TICKET</a></li>
             <li><a href="information.php">INFORMATION</a></li>
         </ul>
