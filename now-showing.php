@@ -59,15 +59,28 @@
       </div>
 
       <div class="container">
+      
         <div class="row">
-          <div class="col-8">
-            <a href="Login.html">
+        <?php 
+                $i = 1;
+                if(mysqli_num_rows($result_now) > 0){
+                    while($row = mysqli_fetch_assoc($result_now)){
+                        if($i <= 5){
+                        ?>
+          <div class="col-8<?php echo $i;?>">
+          <a href="det_movie.php?id=<?php echo $row['id'];?>">
               <figure class="figure">
-                <img src="./img/Movie/suzume.jpg" class="figure-img" alt="..." />
-                <figcaption class="figure-caption"><b>SUZUME</b></figcaption>
+                <img src="<?php echo $row['url_foto']; ?>" class="figure-img" alt="<?php echo $row['nama_film'];?>" />
+                <figcaption class="figure-caption"><b><?php echo $row['nama_film']; ?></b></figcaption>
               </figure>
             </a>
           </div>
+          <?php
+                        }
+                    }
+                }
+            
+            ?>
 
           <div class="col-8">
             <a href="Login.html">
@@ -141,6 +154,7 @@
       <div class="coming-soon">
         <h2 class="text3">COMING SOON</h2>
       </div>
+     
 
       <div class="container">
         <div class="row">
