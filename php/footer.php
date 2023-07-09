@@ -4,12 +4,12 @@
 </div>
 <div class="footer">
     <div class="but-foot">
-        <a href="#" class="purchase-foot">Purchase</a>
+        <a href="ticket.php" class="purchase-foot">Ticket</a>
         <a href="#" class="contact-foot">Contact Us</a>
         <a href="#" class="now-foot">Now Showing</a>
-        <a href="#" class="infor-foot">Information</a>
-        <a href="#" class="trailer-foot">Video & Trailers</a>
-        <a href="#" class="partner-foot">Our Partner</a>
+        <a href="information.php" class="infor-foot">Information</a>
+        <a href="#vid-trailer" class="trailer-foot">Video & Trailers</a>
+        <a href="#partner" class="partner-foot">Our Partner</a>
     </div>
 </div>
 <div class="info-foot">

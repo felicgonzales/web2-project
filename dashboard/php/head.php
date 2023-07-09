@@ -2,6 +2,7 @@
   require_once "../lib/config.php";
   require_once "../lib/lib-db-users.php";
   require_once "lib/lib-db-admin.php";
+  require_once "../lib/lib-db-film.php";
 
   $admin = akunAdminbyUser($_SESSION['admin']);
   $_SESSION['id'] = $admin['id'];
@@ -142,7 +143,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="add_lokasi.php" class="nav-link">
+                    <a href="add-lokasi.php" class="nav-link">
                     <i class="fa fa-plus nav-icon"></i>
                         <p>
                             Menambahkan Lokasi
@@ -150,7 +151,7 @@
                     </a>
                 </li>
               <li class="nav-item">
-                <a href="mengatur-lokasi.php" class="nav-link">
+                <a href="manage-lokasi.php" class="nav-link">
                   <i class="fa fa-info nav-icon"></i>
                   <p>Mengatur Lokasi</p>
                 </a>
@@ -167,7 +168,7 @@
               </a>
               <ul class="nav nav-treeview">
                   <li class="nav-item">
-                      <a href="addstd.php" class="nav-link">
+                      <a href="add-studio.php" class="nav-link">
                       <i class="fa fa-plus nav-icon"></i>
                           <p>
                               Menambahkan Studio
@@ -175,7 +176,7 @@
                       </a>
                   </li>
                 <li class="nav-item">
-                  <a href="deletestd.php" class="nav-link">
+                  <a href="manage-studio.php" class="nav-link">
                     <i class="fa fa-info nav-icon"></i>
                     <p>Mengatur Studio</p>
                   </a>
@@ -192,7 +193,7 @@
               </a>
               <ul class="nav nav-treeview">
                   <li class="nav-item">
-                      <a href="addfilm.php" class="nav-link">
+                      <a href="add-film.php" class="nav-link">
                       <i class="fa fa-plus nav-icon"></i>
                           <p>
                               Menambahkan Film
@@ -200,7 +201,7 @@
                       </a>
                   </li>
                 <li class="nav-item">
-                  <a href="deletefilm.php" class="nav-link">
+                  <a href="manage-film.php" class="nav-link">
                     <i class="fa fa-edit nav-icon"></i>
                     <p>Mengatur Film</p>
                   </a>
@@ -225,7 +226,7 @@
                       </a>
                   </li>
                 <li class="nav-item">
-                  <a href="manageshows.php" class="nav-link">
+                  <a href="manage-jadwal.php" class="nav-link">
                     <i class="fa fa-edit nav-icon"></i>
                     <p>Mengatur Jadwal</p>
                   </a>
@@ -269,3 +270,7 @@
       </div>
     </div>
 </div>
+
+<?php
+  require_once "modals/add-jadwal.php";
+?>

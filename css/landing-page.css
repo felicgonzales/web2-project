@@ -43,22 +43,6 @@
     overflow: hidden;
 }
 
-.mov-img img{
-    object-fit: contain;
-    width: calc(100% / 5);
-    height: 300px;
-    animation: slider 40s linear infinite;
-}
-
-@keyframes slider {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-100% * 8));
-    }
-}
-
 .mov-img img:first-child{
     margin-left: 0px;
 }
