@@ -65,6 +65,7 @@
     text-align: right;
     position: relative;
     left: 10px;
+    text-transform: capitalize;
 }
 
 .nav-profile i {
