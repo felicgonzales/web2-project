@@ -1,0 +1,11 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.but-admin{
+    color: #000;
+    padding-left: 20px;
+    text-decoration: underline;
+}

@@ -121,16 +121,22 @@
 
 
             <div class="dropdown">
-        <div class="select">
+        <div class="select" aria-label="Default select example" name="lokasi" id="lokasi" onchange="getStudio(this.options[this.selectedIndex].value)">
           <span class="selected">Sun Plaza</span>
           <div class="caret"></div>
         </div>
         <ul class="menu">
-          <li class="active">Sun Plaza</li>
-          <li>Thamrin Plaza</li>
           
+          <?php 
+                        while($row = mysqli_fetch_assoc($location)){
+                        
+                    ?>
+          <li value="<?php echo $row['id'];?>"><?php echo $row['wilayah'].'-'.$row['nama_lokasi']; ?></li>
+          <?php
+                        }
+                    ?>
         </ul>
-      </div>
+      </div>x
       </div>
     
          </form>
