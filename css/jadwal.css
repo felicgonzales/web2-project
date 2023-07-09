@@ -1,69 +1,131 @@
+body {
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #03001c;
+}
+
+* {
+  box-sizing: border-box;
+}
+.bag-01 {
+  width: 100%;
+  height: 100px;
+}
+.bag-02 {
+  width: 100%;
+  height: 400px;
+}
+
+.utama img {
+  width: 200px;
+
+  margin-left: 100px;
+  margin-top: 70px;
+  margin-right: 50px;
+}
+.gambar {
+  display: flex;
+}
+.sect {
+  color: #fff;
+  margin-top: 70px;
+  width: 30%;
+}
+.sect h1 {
+  font-family: "nokora";
+  padding-bottom: 10px;
+}
+.sect p {
+  font-weight: normal;
+  font-family: "Noticia Text";
+  opacity: 70%;
+  line-height: 2;
+}
 .box1 {
   border: 2px solid #bbbbbb;
   margin: 0 100px 0 100px;
   border-radius: 10px;
   padding: 30px;
 }
-.box1 h2 {
-  font-family: "Noticia Text";
+
+.jdwl label {
   color: #fff;
-  font-size: 20px;
 }
 
-.box1 .jadwal1 {
+.dropdown {
+  position: relative;
+  min-width: 15em;
+  top: 20px;
+}
+
+.dropdown * {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.select {
+  background: #2a2f3b;
+  color: #fff;
   display: flex;
-
-  margin-top: 40px;
-  margin-bottom: 25px;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px #2a2f3b solid;
+  border-radius: 0.5em;
+  padding: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
 }
 
-.box1 .jadwal1 #kiri {
-  font-family: "Noticia Text";
-  color: #fff;
-  font-size: 20px;
-  opacity: 70%;
-  width: 85%;
+.select-clicked {
+  border: 2px #26489a solid;
+  box-shadow: 0 0 0.8em #26489a;
 }
 
-.box1 .jadwal1 #kanan {
-  font-family: "Noticia Text";
-  color: #fff;
-  font-size: 20px;
-  height: 50px;
-  width: 15%;
-  opacity: 85%;
+.select:hover {
+  background: #323741;
 }
 
-.jam1 {
-  display: flex;
-  width: 50%;
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #fff;
+  transition: 0.3s;
 }
 
-.jam1 button {
-  width: 80px;
-  height: 40px;
-  border-radius: 5px;
-  font-family: "Hind", sans-serif;
-  font-size: 16px;
-  background-color: #03001c;
-  margin-right: 20px;
+.menu {
+  list-style: none;
+  padding: 0.2em 0.5em;
+  background: #323741;
+  border: 1px #363a43 solid;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  color: #9fa5b5;
+
+  width: 100%;
+  margin-top: 10px;
+  opacity: 0;
+  display: none;
+  transition: 0.2s;
+  z-index: 1;
 }
 
-.jam1 .jam-but {
-  color: rgba(255, 255, 255, 0.8500000238418579);
-  border: 2px solid rgba(255, 255, 255, 0.8500000238418579);
+.menu li {
+  padding: 0.7em 0.5em;
+  margin: 0.3em 0;
+
+  border-radius: 0.5em;
+  cursor: pointer;
 }
 
-.jam1 .jam-but:hover {
-  background-color: #2d2b3d;
-  color: rgba(223, 215, 215, 0.85);
-  border: 2px solid rgba(255, 255, 255, 0.8500000238418579);
+.menu li:hover {
+  background: #2a2d35;
 }
 
-.jadbox2 {
-  margin-top: 40px;
-}
-
-.jadbox3 {
-  margin-top: 40px;
+.menu-open {
+  display: block;
+  opacity: 1;
 }

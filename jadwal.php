@@ -2,12 +2,59 @@
   require_once "lib/lib-login.php";
   require_once "lib/connection.php";
   $film_id = $_GET['id'];
-    $sql = "SELECT * FROM film WHERE id = $film_id";
-    $film = mysqli_query($conn, $sql);
-    if(mysqli_num_rows($film) > 0){
-        $film = mysqli_fetch_assoc($film);
-    }
+  $sql_location = "SELECT DISTINCT l.id, l.nama_lokasi, l.wilayah FROM jadwalpenayangan jp 
+                  JOIN studio s ON s.id = jp.id_studio
+                  JOIN lokasi l ON l.id = s.id_lokasi
+                  WHERE jp.id_film = $film_id";
+  $location = mysqli_query($conn, $sql_location);
+  $sql_film = "SELECT * FROM film WHERE id = $film_id";
+  $film = mysqli_query($conn, $sql_film);
+  $film = mysqli_fetch_assoc($film);
 ?>
+<script>
+    function getStudio(lokasi) {
+        var film_id = <?php echo $film_id;?>;
+        console.log('getStudio.php?id='+lokasi+"&film_id="+film_id)
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("rdBox").innerHTML = this.responseText;
+        }
+        };
+        xmlhttp.open("GET", 'getStudio.php?id='+lokasi+"&film_id="+film_id, true);
+        xmlhttp.send();
+    }
+    function getDate(studio) {
+        var id_studio = studio.value;
+        var film_id = <?php echo $film_id;?>;
+        console.log('getDate.php?film_id='+film_id+"&studio_id="+id_studio);
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("rdBox2").innerHTML = this.responseText;
+        }
+        };
+        xmlhttp.open("GET", 'getDate.php?id_lokasi='+lokasi+"&film_id="+film_id+"&studio_id="+id_studio, true);
+        xmlhttp.send();
+    }
+    function getTime(tgl) {
+        var id_studio = document.getElementsByName('studio_id')[0].value;
+        var film_id = <?php echo $film_id;?>;
+        var tgl = tgl.value;
+        console.log('getTime.php?film_id='+film_id+"&studio_id="+id_studio+"&tgl="+tgl);
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("rdBox3").innerHTML = this.responseText;
+        }
+        };
+        xmlhttp.open("GET", 'getTime.php?film_id='+film_id+"&studio_id="+id_studio+"&tgl='"+tgl+"'", true);
+        xmlhttp.send();
+    }
+    function clearSelection(){
+        window.location = "";
+    }
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,121 +96,48 @@
         <script src="js/navbar-login.js"></script>
 
 <!-- Bagian 2 - jadwal  -->
-
-        <div class="jadbox1">
-        <div class="box1">
-          <h2>SENIN, 27-03-2023</h2>
-          <div class="jadwal1">
-            <p id="kiri">SUN PLAZA</p>
-            <p id="kanan">
-              Regular <br />
-              Rp 45.000
-            </p>
-            <p id="kanan">
-              Ultra Xd <br />
-              Rp 60.000
-            </p>
+<div class="bag-02">
+      <div class="gambar">
+        <div class="utama">
+          <img src="<?php echo $film['foto']; ?>" />
+         </div>
+         <div class="sect">
+          <h1><?php echo $film['judul'];?></h1>
+          <p><?php echo $film['durasi'];?></p>
           </div>
-          <div class="jam1">
-            <a href="seat1.html">
-              <button type="button" class="jam-but">13.00</button>
-              <button type="button" class="jam-but">14.45</button>
-              <button type="button" class="jam-but">16.00</button>
-              <button type="button" class="jam-but">19.00</button>
-            </a>
-          </div>
-          <div class="jadwal1">
-            <p id="kiri">CENTRE POINT</p>
-            <p id="kanan">
-              Regular <br />
-              Rp 40.000
-            </p>
-            <p id="kanan">
-              Ultra Xd <br />
-              Rp 55.000
-            </p>
-          </div>
-          <div class="jam1">
-            <a href="seat2.html">
-              <button type="button" class="jam-but">14.25</button>
-              <button type="button" class="jam-but">18.00</button>
-              <button type="button" class="jam-but">21.00</button>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <div class="jadbox2">
-        <div class="box1">
-          <h2>RABU, 29-03-2023</h2>
-          <div class="jadwal1">
-            <p id="kiri">DELIPARK</p>
-            <p id="kanan">
-              Regular <br />
-              Rp 45.000
-            </p>
-            <p id="kanan">
-              Ultra Xd <br />
-              Rp 60.000
-            </p>
-          </div>
-          <div class="jam1">
-            <a href="seat3.html">
-              <button type="button" class="jam-but">14.00</button>
-              <button type="button" class="jam-but">14.45</button>
-              <button type="button" class="jam-but">17.00</button>
-            </a>
-          </div>
-          <div class="jadwal1">
-            <p id="kiri">THAMRIN PLAZA</p>
-            <p id="kanan">
-              Regular <br />
-              Rp 35.000
-            </p>
-            <p id="kanan">
-              Ultra Xd <br />
-              Rp 50.000
-            </p>
-          </div>
-          <div class="jam1">
-            <a href="seat4.html">
-              <button type="button" class="jam-but">12.00</button>
-              <button type="button" class="jam-but">17.00</button>
-              <button type="button" class="jam-but">19.00</button>
-              <button type="button" class="jam-but">21.00</button>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="jadbox3">
-        <div class="box1">
-          <h2>SABTU, 01-04-2023</h2>
-          <div class="jadwal1">
-            <p id="kiri">LIPPO MALL</p>
-            <p id="kanan">
-              Regular <br />
-              Rp 75.000
-            </p>
-            <p id="kanan">
-              Ultra Xd <br />
-              Rp 90.000
-            </p>
-          </div>
-          <div class="jam1">
-            <a href="seat5.html">
-              <button type="button" class="jam-but">14.00</button>
-              <button type="button" class="jam-but">14.45</button>
-              <button type="button" class="jam-but">17.00</button>
-              <button type="button" class="jam-but">19.00</button>
-            </a>
-          </div>
-        </div>
-      </div>
+         </div>
+          
     </div>
-      <!-- Bagian 4 - Footer -->
-      <div class="bag-04">
-        <?php include"php/footer.php";?>
-    </div>
+    <div class="jadbox1">
+        <div class="box1">
+      
+        <form action="seat.php" method="GET">
+        <div class="jdwl"style="display:none;">
+                <input type="text" name="film_id" value="<?php echo $film_id;?>">
+            </div>
+            <div class="jdwl">
+            <label for="lokasi" class="form-label">Pilih Lokasi</label>
+            
 
+
+            <div class="dropdown">
+        <div class="select">
+          <span class="selected">Sun Plaza</span>
+          <div class="caret"></div>
+        </div>
+        <ul class="menu">
+          <li class="active">Sun Plaza</li>
+          <li>Thamrin Plaza</li>
+          
+        </ul>
+      </div>
+      </div>
+    
+         </form>
+      </div>
+      
+</div>
+
+  <script src="js/jadwal.js"></script>
 </body>
 </html>

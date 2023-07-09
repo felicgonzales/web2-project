@@ -134,6 +134,6 @@
     <!-- Script JS -->
     
     <script src="js/navbar-login.js"></script>
-    <script src="js/now-showing.js"></script>
+    <script src="js/jadwal.js"></script>
 </body>
 </html>

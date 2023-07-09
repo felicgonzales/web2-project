@@ -30,7 +30,7 @@
     ?>
        <link rel="stylesheet" href="css/landing-page.css">
     <link rel="stylesheet" href="css/desc.css">
-    <link rel="stylesheet" href="css/footer.css">
+    
     
 </head>
 <body>
@@ -54,14 +54,29 @@
       <div class="gambar">
         <div class="utama">
           <img src="<?php echo $film['foto']; ?>" />
+         
+          <div class="buton">
           <?php
-                    if(isset($_SESSION['logged_in'])){
+                    if(isset($_SESSION['login'])){
                 ?>
-                    <a href="choose_sched.php?id=<?php echo $film['id'];?>" class="btn btn-primary btn_buy">Beli Tiket</a> 
-                <?php
+        <a href="jadwal.php?id=<?php echo $film['id'];?>">
+          <button class="pay" onclick="window.location.href = 'purchase-after-login.html';">
+            Buy Ticket
+            <span class="first"></span>
+            <span class="second"></span>
+            <span class="third"></span>
+            <span class="fourth"></span>
+          </button>
+        </a>
+        <?php
                     }
                 ?>
+      </div>
+     
         </div>
+        
+        
+        
         <div class="sect">
           <h1><?php echo $film['judul'];?></h1>
           <p><?php echo $film['durasi'];?></p>
@@ -78,10 +93,6 @@
       </div>
 
       
-      <!-- Bagian 4 - Footer -->
-      <div class="bag-04">
-        <?php include"php/footer.php";?>
-    </div>
-
+    
 </body>
 </html>
