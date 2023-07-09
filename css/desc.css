@@ -1,0 +1,63 @@
+body {
+  background-color: #03001c;
+}
+.bag-01 {
+  width: 100%;
+  height: 100px;
+  background-color: #03001c;
+}
+.bag-02 {
+  width: 100%;
+
+  background-color: #03001c;
+}
+
+.utama img {
+  width: 200px;
+  margin-left: 100px;
+  margin-top: 70px;
+  margin-right: 50px;
+}
+.gambar {
+  display: flex;
+  margin-bottom: 80px;
+}
+
+.sect {
+  color: #fff;
+  margin-top: 70px;
+  width: 30%;
+}
+.sect h1 {
+  font-family: "nokora";
+  padding-bottom: 10px;
+}
+.sect p {
+  font-weight: normal;
+  font-family: "Noticia Text";
+  opacity: 70%;
+  line-height: 2;
+}
+
+.sinop {
+  color: #fff;
+  margin-top: 80px;
+  width: 100%;
+}
+
+.sinop h2 {
+  font-family: "nokora";
+  padding-bottom: 10px;
+}
+
+.sinop p {
+  font-weight: normal;
+  font-family: "Noticia Text";
+  opacity: 70%;
+  margin-right: 100px;
+  text-align: justify;
+  line-height: 1.5;
+  border: 2px solid #bbbbbb;
+  border-radius: 10px;
+  padding: 10px;
+}

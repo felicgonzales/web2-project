@@ -1,5 +1,10 @@
 <?php
-    require_once "lib/lib-login.php";
+  require_once "lib/lib-login.php";
+  require_once "lib/connection.php";
+  $sql1 = "SELECT * FROM film WHERE kategori = 'now_showing'";
+ $sql2 = "SELECT * FROM film WHERE kategori= 'coming_soon'";
+ $result_now = mysqli_query($conn,$sql1);
+ $result_soon = mysqli_query($conn,$sql2);
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +59,7 @@
           <li>Medan Fair</li>
         </ul>
       </div>
-      <div class="now-show">
+      <div class="now-show" id="now_playing">
         <h2 class="text2">NOW SHOWING</h2>
       </div>
 
@@ -64,14 +69,14 @@
         <?php 
                 $i = 1;
                 if(mysqli_num_rows($result_now) > 0){
-                    while($row = mysqli_fetch_assoc($result_now)){
-                        if($i <= 5){
+                    while($rows = mysqli_fetch_assoc($result_now)){
+                        if($i <= 8){
                         ?>
-          <div class="col-8<?php echo $i;?>">
-          <a href="det_movie.php?id=<?php echo $row['id'];?>">
+          <div class="col-8 ">
+          <a href="desc.php?id=<?php echo $rows['id'];?>">
               <figure class="figure">
-                <img src="<?php echo $row['url_foto']; ?>" class="figure-img" alt="<?php echo $row['nama_film'];?>" />
-                <figcaption class="figure-caption"><b><?php echo $row['nama_film']; ?></b></figcaption>
+                <img src="<?php echo $rows['foto']; ?>" class="figure-img" alt="<?php echo $rows['judul'];?>" />
+                <figcaption class="figure-caption"><b><?php echo $rows['judul']; ?></b></figcaption>
               </figure>
             </a>
           </div>
@@ -82,118 +87,42 @@
             
             ?>
 
-          <div class="col-8">
-            <a href="Login.html">
-              <figure class="figure">
-                <img src="./img/Movie/creed.jpg" class="figure-img" alt="..." />
-                <figcaption class="figure-caption"><b>CREED III</b></figcaption>
-              </figure>
-            </a>
-          </div>
 
-          <div class="col-8">
-            <a href="Login.html">
-              <figure class="figure">
-                <img src="./img/Movie/blood.jpg" class="figure-img" alt="..." />
-                <figcaption class="figure-caption"><b>BLOOD</b></figcaption>
-              </figure>
-            </a>
-          </div>
-
-          <div class="col-8">
-            <a href="Login.html">
-              <figure class="figure">
-                <img src="./img/Movie/antman.jpg" class="figure-img" alt="..." />
-                <figcaption class="figure-caption"><b>ANT-MAN </b></figcaption>
-              </figure>
-            </a>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-8">
-            <a href="Login.html">
-              <figure class="figure">
-                <img src="./img/Movie/waktumagrib.jpg" class="figure-img" alt="..." />
-                <figcaption class="figure-caption"><b>WAKTU MAGRIB</b></figcaption>
-              </figure>
-            </a>
-          </div>
-
-          <div class="col-8">
-            <a href="Login.html">
-              <figure class="figure">
-                <img src="./img/Movie/sas.jpg" class="figure-img" alt="..." />
-                <figcaption class="figure-caption"><b>SAS: RED NOTICE</b></figcaption>
-              </figure>
-            </a>
-          </div>
-
-          <div class="col-8">
-            <a href="Login.html">
-              <figure class="figure">
-                <img src="./img/Movie/missing.jpg" class="figure-img" alt="..." />
-                <figcaption class="figure-caption"><b>MISSING</b></figcaption>
-              </figure>
-            </a>
-          </div>
-
-          <div class="col-8">
-            <a href="Login.html">
-              <figure class="figure">
-                <img src="./img/Movie/pesugihan.jpg" class="figure-img" alt="..." />
-                <figcaption class="figure-caption"><b>PESUGIHAN</b></figcaption>
-              </figure>
-            </a>
-          </div>
+          
         </div>
       </div>
-    </div>
+  
 
     <div class="bag-03">
-      <div class="coming-soon">
+      <div class="coming-soon" id="now_playing">
         <h2 class="text3">COMING SOON</h2>
       </div>
      
 
       <div class="container">
         <div class="row">
-          <div class="col-8">
-            <a href="#  ">
-              <figure class="figure">
-                <img src="./img/Movie/johnwick.jpg" class="figure-img" alt="..." />
-                <figcaption class="figure-caption"><b>JOHN WICK</b></figcaption>
+        <?php 
+                $i = 1;
+                if(mysqli_num_rows($result_soon) > 0){
+                    while($rows = mysqli_fetch_assoc($result_soon)){
+                        if($i <= 8){
+                        ?>
+          <div class="col-8 ">
+          
+          <a href="desc.php?id=<?php echo $rows['id'];?>">
+          <figure class="figure">
+                <img src="<?php echo $rows['foto']; ?>" class="figure-img" alt="<?php echo $rows['judul'];?>" />
+                <figcaption class="figure-caption"><b><?php echo $rows['judul']; ?></b></figcaption>
               </figure>
             </a>
           </div>
-
-          <div class="col-8">
-            <a href="#">
-              <figure class="figure">
-                <img src="./img/Movie/shazam.jpg" class="figure-img" alt="..." />
-                <figcaption class="figure-caption"><b>SHAZAM</b></figcaption>
-              </figure>
-            </a>
-          </div>
-
-          <div class="col-8">
-            <a href="#">
-              <figure class="figure">
-                <img src="./img/Movie/losmen.jpg" class="figure-img" alt="..." />
-                <figcaption class="figure-caption"><b>LOSMEN MELATI</b></figcaption>
-              </figure>
-            </a>
-          </div>
-
-          <div class="col-8">
-            <a href="#">
-              <figure class="figure">
-                <img src="./img/Movie/dungeons.jpg
-                " class="figure-img" alt="..." />
-                <figcaption class="figure-caption"><b>DUNGEONS & DRAGON</b></figcaption>
-              </figure>
-            </a>
-          </div>
+          <?php
+                        }
+                    }
+                }
+            
+            ?>
+          
         </div>     
     </div>
     
