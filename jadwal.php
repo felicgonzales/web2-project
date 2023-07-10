@@ -64,7 +64,7 @@
 
     <!-- Title/Icon/Link -->
     <?php require_once"php/icon_link.php";?>
-    <title>F-TIX | Now Showing</title>
+    <title>F-TIX | Jadwal</title>
 
     <!-- Style -->
     <link rel="stylesheet" href="css/all.css">

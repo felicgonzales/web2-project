@@ -1,5 +1,15 @@
 <?php
     require_once "lib/lib-login.php";
+    require_once "lib/lib-db-users.php";
+
+    $id = $_GET['id'];
+    $akunUser = akunById($id);
+    foreach ($akunUser as $value) {
+      $user = $value['username'];
+      $email = $value['email'];
+      $gender = $value['gender'];
+      $no_telp = $value['no_telp'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +38,11 @@
 <!-- Body -->
 <body>
     <!-- Bagian 1 - Form -->
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="proses/save-data.php" method="post" enctype="multipart/form-data">
     <div class="container rounded bg-white mt-5">
       <div class="row">
         <div class="col-md-4 border-right">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="img/profil.png" width="100" /><span class="font-weight-bold">John Doe</span></div>
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="img/profil.png" width="250" style="border: solid 1px white;"/><span class="font-weight-bold" style="color: white; margin-top: 20px; font-size: 30px;"><?php echo $user; ?></span></div>
         </div>
         <div class="col-md-8">
           <div class="p-3 py-5">
@@ -44,28 +54,29 @@
               <h6 class="text-right">Edit Profile</h6>
             </div>
 
-            <div class="row mt-2">
+            <div class="row mt-3">
               <label for="name">Username :</label>
-              <div class="col-md-6"><input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" /></div>
+              <div class="col-md-6"><input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" value="<?php if(isset($user)){ echo $user; } ?>"/></div>
             </div>
             <div class="row mt-3">
               <label for="email">Email :</label>
-              <div class="col-md-6"><input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" /></div>
+              <div class="col-md-6"><input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" value="<?php if(isset($email)){ echo $email; } ?>"/></div>
             </div>
             <div class="row mt-3">
               <label for="phone">Telephone Number :</label>
-              <div class="col-md-6"><input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your telephone number" /></div>
+              <div class="col-md-6"><input type="tel" class="form-control" id="phone" name="phone" placeholder="Enter your telephone number" value="<?php if(isset($no_telp)){ echo $no_telp; } ?>"/></div>
             </div>
             <div class="row mt-3">
               <label for="city">Gender :</label>
               <div class="col-md-6">
-                <input type="radio" id="lk" name="gender" value="Laki-Laki" />
+                <input type="radio" id="lk" name="gender" value="Laki-Laki" <?php if(isset($gender) && $gender == "Laki-Laki"){ echo "checked"; } ?>/>
                 <label for="lk">Laki-Laki</label>
-                <input type="radio" id="pr" name="gender" value="Perempuan" />
+                <input type="radio" id="pr" name="gender" value="Perempuan" <?php if(isset($gender) && $gender == "Perempuan"){ echo "checked"; } ?>/>
                 <label for="pr">Perempuan</label>
               </div>
             </div>
-            <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+            <input type="hidden" value="<?php echo $id ?>" name="id">
+            <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="submit">Save Profile</button></div>
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
 <?php
   require_once "lib/lib-login.php";
-  require_once "lib/connection.php";
-  $sql1 = "SELECT * FROM film WHERE kategori = 'now_showing'";
- $sql2 = "SELECT * FROM film WHERE kategori= 'coming_soon'";
- $result_now = mysqli_query($conn,$sql1);
- $result_soon = mysqli_query($conn,$sql2);
+  require_once "lib/lib-db-film.php";
+ $hitung_now = hitungNow();
+  $result_now = cariNow();
+  $hitung_soon = hitungSoon();
+  $result_soon = cariSoon();
 ?>
 
 <!DOCTYPE html>
@@ -68,8 +68,8 @@
         <div class="row">
         <?php 
                 $i = 1;
-                if(mysqli_num_rows($result_now) > 0){
-                    while($rows = mysqli_fetch_assoc($result_now)){
+                if($hitung_now > 0){
+                    foreach($result_now as $rows){
                         if($i <= 8){
                         ?>
           <div class="col-8 ">
@@ -103,8 +103,8 @@
         <div class="row">
         <?php 
                 $i = 1;
-                if(mysqli_num_rows($result_soon) > 0){
-                    while($rows = mysqli_fetch_assoc($result_soon)){
+                if($hitung_soon > 0){
+                    foreach($result_soon as $rows){
                         if($i <= 8){
                         ?>
           <div class="col-8 ">

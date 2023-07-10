@@ -1,5 +1,6 @@
 <?php
 require_once "config.php";
+require_once "lib-login.php";
 
 function cariAkun($username, $password){
 	global $conn;
@@ -14,9 +15,22 @@ function cariAkun($username, $password){
     if ($hitung === 1) {
         $row = $query->fetch(PDO::FETCH_ASSOC);
         if(password_verify($password, $row['password'])){
-            $_SESSION["login"] = true;
-            header("location: ../index.php");
-            exit;
+            if ($row['role'] == "Admin") {
+                $_SESSION["role"] = "Admin";
+                $_SESSION["admin"] = $username;
+                if(isAdmin()){
+                    header("location: ../dashboard/index.php");
+                }
+            }else{
+                $_SESSION["login"] = true;
+                $_SESSION["username"] = $username;
+                header("location: ../index.php");
+                exit;
+            }
+        }
+        else{
+            $_SESSION['pass'] = "'Username atau Password salah'";
+        header("location: ../login.php");
         }
     }else{
         $_SESSION['pass'] = "'Username atau Password salah'";
@@ -57,4 +71,37 @@ function regisAkun($username, $email, $password, $confir_pass){
         $_SESSION['same_pass'] = "'Password anda tidak sama'";
         return header("location: ../regis.php");
     }
+}
+
+function akunUser($username){
+    global $conn;
+
+	$query = $conn->prepare("SELECT * FROM users where username = :username");
+	$query->execute(array(
+		'username'=>$username
+	));
+    return $query->fetchAll();
+}
+
+function akunById($id){
+    global $conn;
+
+	$query = $conn->prepare("SELECT * FROM users where id = :id");
+	$query->execute(array(
+		'id'=>$id
+	));
+    return $query->fetchAll();
+}
+
+function simpanEditData($id, $username, $email, $no_telp, $gender){
+    global $conn;
+        $query = $conn->prepare("UPDATE users SET  username = :username, email= :email, no_telp = :no_telp, gender = :gender
+                    WHERE id = :id");
+        
+        return $query->execute(array(
+                                'id' => $id,
+                                'username' => $username,
+                                'no_telp' => $no_telp,
+                                'email' => $email,
+                                'gender' => $gender));
 }

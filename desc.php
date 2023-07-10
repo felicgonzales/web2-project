@@ -1,11 +1,10 @@
 <?php
   require_once "lib/lib-login.php";
-  require_once "lib/connection.php";
+  require_once "lib/lib-db-film.php";
   $film_id = $_GET['id'];
-    $sql = "SELECT * FROM film WHERE id = $film_id";
-    $film = mysqli_query($conn, $sql);
-    if(mysqli_num_rows($film) > 0){
-        $film = mysqli_fetch_assoc($film);
+    $hitung = hitungFilm();
+    if($hitung > 0){
+        $film = filmById($film_id);
     }
 ?>
 

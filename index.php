@@ -1,5 +1,8 @@
 <?php
     require_once "lib/lib-login.php";
+    require_once "lib/lib-db-film.php";
+
+    $film = semuaFilm();
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +27,23 @@
     ?>
     <link rel="stylesheet" href="css/landing-page.css">
     <link rel="stylesheet" href="css/footer.css">
+    <style>
+        .mov-img img{
+            object-fit: contain;
+            width: calc(100% / 5);
+            height: 300px;
+            animation: slider 40s linear infinite;
+        }
+
+        @keyframes slider {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-100% * <?php echo hitungFilm(); ?>));
+            }
+        }
+    </style>
 </head>
 
 <!-- Body -->
@@ -47,29 +67,23 @@
             </div>
             <div class="new2">
                 <div class="mov-img">
-                    <img src="img/Movie/antman.jpg" alt="" class="img-01">
-                    <img src="img/Movie/blood.jpg" alt="" class="img-02">
-                    <img src="img/Movie/creed.jpg" alt="" class="img-03">
-                    <img src="img/Movie/missing.jpg" alt="" class="img-04">
-                    <img src="img/Movie/sas.jpg" alt="" class="img-05">
-                    <img src="img/Movie/pesugihan.jpg" alt="" class="img-06">
-                    <img src="img/Movie/suzume.jpg" alt="" class="img-07">
-                    <img src="img/Movie/waktumagrib.jpg" alt="" class="img-08">
-                    <img src="img/Movie/antman.jpg" alt="" class="img-01">
-                    <img src="img/Movie/blood.jpg" alt="" class="img-02">
-                    <img src="img/Movie/creed.jpg" alt="" class="img-03">
-                    <img src="img/Movie/missing.jpg" alt="" class="img-04">
-                    <img src="img/Movie/sas.jpg" alt="" class="img-05">
-                    <img src="img/Movie/pesugihan.jpg" alt="" class="img-06">
-                    <img src="img/Movie/suzume.jpg" alt="" class="img-07">
-                    <img src="img/Movie/waktumagrib.jpg" alt="" class="img-08">
+                    <?php
+                        for ($i=0; $i < 2; $i++) { 
+                            foreach ($film as $value) {
+                                // if($value['kategori'] == "now_showing"){
+                                //     echo "<img src='".$value['foto']."' alt=''>";
+                                // }
+                                echo "<img src='".$value['foto']."' alt=''>";
+                            }
+                        }
+                    ?>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bagian 2 - Video & Trailer -->
-    <div class="bag-02">
+    <div class="bag-02" id="vid-trailer">
         <h3 class="bag2-t">
             VIDEO & TRAILERS
         </h3>
@@ -98,7 +112,7 @@
 
     <!-- Bagian 3 - Partner -->
     <div class="bag-03">
-        <div class="bag3-p1">
+        <div class="bag3-p1" id="partner">
             <p>Enjoy the best Movie, Entertainment, and Food, keep up to date with the latest News, and Get attractive Deals and Promos!</p>
             <div class="but-buy">
                 <button type="button">Buy Now</button>
