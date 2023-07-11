@@ -11,6 +11,8 @@ body {
   background: #342c7e;
   box-shadow: none;
   border: none;
+  position: relative;
+  top: 90px;
 }
 
 .profile-button:hover {
@@ -32,9 +34,15 @@ body {
   cursor: pointer;
 }
 
-.row.mt-2 .col-md-6 {
+.row.mt-3 .col-md-6 {
   position: absolute;
   right: 26%;
+}
+
+.row.mt-3{
+  position: relative;
+  top: 50px;
+  left: 20px;
 }
 
 .row.mt-3 .col-md-6 {

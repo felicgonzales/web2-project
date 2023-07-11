@@ -43,6 +43,23 @@ body{
     padding-top: 20px;
 }
 
+.input-1{
+    width: 350px;
+    margin: 0 auto;
+    position: relative;
+    top: 30px;
+    padding-top: 20px;
+}
+
+.input-1 label{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    color: red;
+    font-size: 1em;
+    pointer-events: none;
+}
+
 .input label{
     position: absolute;
     top: 5px;

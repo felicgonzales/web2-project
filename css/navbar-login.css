@@ -54,15 +54,18 @@
     position: relative;
     right: 100px;
     color: #fff;
+    cursor: pointer;
 }
 
 .nav-profile p {
+    text-decoration: underline;
     width: 100px;
     font-family: 'Hind', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     text-align: right;
     position: relative;
     left: 10px;
+    text-transform: capitalize;
 }
 
 .nav-profile i {

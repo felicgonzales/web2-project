@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . '/../../../vendor/autoload.php';
+require __DIR__ . '/../../../../vendor/autoload.php';
 require_once "../../lib/lib-db-film.php";
 use codeguy\upload;
 
