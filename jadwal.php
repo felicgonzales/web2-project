@@ -1,54 +1,49 @@
 <?php
   require_once "lib/lib-login.php";
-  include('lib/connection.php');
+  require_once "lib/lib-db-film.php";
   $film_id = $_GET['id'];
-  $sql_location = "SELECT DISTINCT l.id, l.nama_lokasi, l.wilayah FROM jadwal j
-                  JOIN studio s ON s.id = j.id_studio
-                  JOIN lokasi l ON l.id = s.id_lokasi
-                  WHERE j.id_film = $film_id";
-  $location = mysqli_query($conn, $sql_location);
-  $sql_film = "SELECT * FROM film WHERE id = $film_id";
-  $film = mysqli_query($conn, $sql_film);
-  $film = mysqli_fetch_assoc($film);
+  $location = cariJadwal();
+  $hitung = hitungFilm();
+  $film = filmById($film_id);
 ?>
 <script>
     function getStudio(lokasi) {
         var film_id = <?php echo $film_id;?>;
-        console.log('proses/getStudio.php?id='+lokasi+"&film_id="+film_id)
+        console.log('getStudio.php?id='+lokasi+"&film_id="+film_id)
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("rdBox").innerHTML = this.responseText;
         }
         };
-        xmlhttp.open("GET", 'proses/getStudio.php?id='+lokasi+"&film_id="+film_id, true);
+        xmlhttp.open("GET", 'getStudio.php?id='+lokasi+"&film_id="+film_id, true);
         xmlhttp.send();
     }
     function getDate(studio) {
         var id_studio = studio.value;
         var film_id = <?php echo $film_id;?>;
-        console.log('proses/getDate.php?film_id='+film_id+"&studio_id="+id_studio);
+        console.log('getDate.php?film_id='+film_id+"&studio_id="+id_studio);
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("rdBox2").innerHTML = this.responseText;
         }
         };
-        xmlhttp.open("GET", 'proses/getDate.php?id_lokasi='+lokasi+"&film_id="+film_id+"&studio_id="+id_studio, true);
+        xmlhttp.open("GET", 'getDate.php?id_lokasi='+lokasi+"&film_id="+film_id+"&studio_id="+id_studio, true);
         xmlhttp.send();
     }
     function getTime(tgl) {
         var id_studio = document.getElementsByName('studio_id')[0].value;
         var film_id = <?php echo $film_id;?>;
         var tgl = tgl.value;
-        console.log('proses/getTime.php?film_id='+film_id+"&studio_id="+id_studio+"&tgl="+tgl);
+        console.log('getTime.php?film_id='+film_id+"&studio_id="+id_studio+"&tgl="+tgl);
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             document.getElementById("rdBox3").innerHTML = this.responseText;
         }
         };
-        xmlhttp.open("GET", 'proses/getTime.php?film_id='+film_id+"&studio_id="+id_studio+"&tgl='"+tgl+"'", true);
+        xmlhttp.open("GET", 'getTime.php?film_id='+film_id+"&studio_id="+id_studio+"&tgl='"+tgl+"'", true);
         xmlhttp.send();
     }
     function clearSelection(){
@@ -129,7 +124,7 @@
         
         <ul class="menu">
         <?php 
-                        while($row = mysqli_fetch_assoc($location)){
+                        foreach($location as $row){
                         
                     ?>
           

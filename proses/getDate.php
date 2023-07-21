@@ -1,5 +1,5 @@
 <?php 
- include('lib/connection.php');
+  require_once "lib/lib-db-film.php";
     $film_id = $_GET['film_id'];
     $studio_id = $_GET['studio_id'];
 
