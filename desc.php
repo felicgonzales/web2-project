@@ -86,7 +86,6 @@
           <h2>Sinopsis :</h2>
           <p>
           <?php echo $film['deskripsi'];?>
-
           </p>
         </div>
       </div>

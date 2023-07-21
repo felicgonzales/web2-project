@@ -191,20 +191,6 @@ function hapusStudio($id){
                             'id' => $id));
 }
 
-function tambahJadwal($date, $film, $studio, $jam, $harga){
-    global $conn;
-	
-    $query = $conn->prepare("INSERT INTO jadwal (tanggal_tayang, id_film, id_studio, jam_tayang, harga_tiket) VALUES (:tanggal_tayang , :id_film, :id_studio, :jam_tayang, :harga_tiket)");
-        
-    $query->execute(array(
-                            'tanggal_tayang' => $date,
-                            'id_film' => $film,
-                            'id_studio' => $studio,
-                            'jam_tayang' => $jam,
-                            'harga_tiket' => $harga
-                        ));
-}
-
 function cariJadwal(){
     global $conn;
     $query = $conn->prepare("SELECT jp.*, s.no_studio, l.nama_lokasi, l.wilayah, f.judul
@@ -255,6 +241,92 @@ function cariSoon (){
 
     $query->execute(array(
             'kategori' => 'coming_soon'
+    ));
+    return $query->fetchAll();
+}
+
+function jumlahKursi($id){
+    global $conn;
+    $query = $conn->prepare("SELECT * FROM studio where id = :id");
+    $query->execute(array(
+        'id' => $id
+    ));
+    return $query->fetch(PDO::FETCH_ASSOC);
+}
+
+function mencariJadwal($id_studio, $tanggal, $id_film, $jam){
+    global $conn;
+    $query = $conn->prepare("SELECT * FROM jadwal WHERE id_studio = :id_studio and tanggal_tayang = :tanggal_tayang and id_film = :id_film and jam_tayang IN (:jam_tayang)");
+    $query->execute(array(
+        'id_studio' => $id_studio,
+        'tanggal_tayang' => $tanggal,
+        'id_film' => $id_film,
+        'jam_tayang' => $jam
+    ));
+    return $query->rowCount();
+}
+
+function tambahJadwal($studio, $film, $date, $jam, $kursi, $harga){
+    global $conn;
+    $arr_query = array();
+        for ($i = 0; $i < count($jam); $i++){
+            $query = "($studio,$film,'$date','$jam[$i]',$kursi,0,$harga,'')";
+            array_push($arr_query,$query);
+        }
+    $query_concat = implode(',',$arr_query);
+    $query = $conn->prepare("INSERT INTO jadwal (id_studio,id_film,tanggal_tayang,jam_tayang,tiket_tersedia,tiket_terjual,harga_tiket,kursi_terjual)
+    VALUES $query_concat");
+    $query->execute();
+}
+
+function jadwalFilm($id){
+    global $conn;
+    $query = $conn->prepare("SELECT DISTINCT l.id, l.nama_lokasi, l.wilayah FROM jadwal jp 
+    JOIN studio s ON s.id = jp.id_studio
+    JOIN lokasi l ON l.id = s.id_lokasi
+    WHERE jp.id_film = :id_film");
+    $query->execute(array(
+        'id_film' => $id
+    ));
+    return $query->fetchAll();
+}
+
+function getStudio($id, $id_film){
+    global $conn;
+    $query = $conn->prepare("SELECT DISTINCT s.no_studio, s.id FROM jadwal jp 
+    JOIN studio s ON s.id = jp.id_studio
+    JOIN lokasi l ON l.id = s.id_lokasi
+    WHERE l.id = :id and jp.id_film = :id_film");
+    $query->execute(array(
+        'id' => $id,
+        'id_film' => $id_film
+    ));
+    return $query->fetchAll();
+}
+
+function getTanggal($id, $id_studio){
+    global $conn;
+    $query = $conn->prepare("SELECT DISTINCT tanggal_tayang FROM jadwal j
+    JOIN studio s ON s.id = j.id_studio
+    JOIN lokasi l ON l.id = s.id_lokasi
+    WHERE j.id_film = :id_film and j.id_studio = :id_studio");
+    $query->execute(array(
+        'id_film' => $id,
+        'id_studio' => $id_studio
+    ));
+    return $query->fetchAll();
+}
+
+function getTime($id_film, $id_studio, $date){
+    global $conn;
+    $query = $conn->prepare("SELECT DISTINCT jam_tayang FROM jadwal j
+    JOIN studio s ON s.id = j.id_studio
+    JOIN lokasi l ON l.id = s.id_lokasi
+    WHERE j.id_film = :id_film and j.id_studio = :id_studio and j.tanggal_tayang = :tanggal_tayang");
+    $query->execute(array(
+        'id_film' => $id_film,
+        'id_studio' => $id_studio,
+        'tanggal_tayang' => $date
     ));
     return $query->fetchAll();
 }

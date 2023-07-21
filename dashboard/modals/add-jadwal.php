@@ -4,6 +4,12 @@
     $filmData = semuaFilm();
     $studioHitung = hitungStudio();
     $studioData = cariStudio();
+
+    $message="";
+    if (isset($_SESSION['jadwalError'])) {
+        $message = $_SESSION['jadwalError'];
+        unset($_SESSION['jadwalError']);
+    }
 ?>
 <div class="modal fade" id="add_shows" tabindex="-1" aria-labelledby="add_showsLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -16,6 +22,7 @@
         </div>
         <div class="modal-body">
             <form action="proses/tambah-jadwal.php" method="POST">
+                <label for="message"><?php echo $message; ?></label>
                 <div class="form-group">
                     <label for="shows_date">Tanggal Tayang</label>
                     <input type="date" class="form-control" id="shows_date" name="shows_date" value="<?php echo date('Y-m-d');?>">                   
@@ -53,19 +60,19 @@
                     <div class="form-row">
                         <div class="col">
                             <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" id="time1" value="12:15" name="jam_tayang" checked>
+                            <input class="custom-control-input" type="checkbox" id="time1" value="12:15" name="jam_tayang[]" checked>
                             <label for="time1" class="custom-control-label">12 : 15</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" id="time2" value="13:50" name="jam_tayang">
+                            <input class="custom-control-input" type="checkbox" id="time2" value="13:50" name="jam_tayang[]">
                             <label for="time2" class="custom-control-label">13 : 50</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" id="time3" value="15:05" name="jam_tayang">
+                            <input class="custom-control-input" type="checkbox" id="time3" value="15:05" name="jam_tayang[]">
                             <label for="time3" class="custom-control-label">15 : 05</label>
                             </div>
                         </div>
@@ -73,19 +80,19 @@
                     <div class="form-row">
                     <div class="col">
                         <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="time4" value="16:35" name="jam_tayang">
+                        <input class="custom-control-input" type="checkbox" id="time4" value="16:35" name="jam_tayang[]">
                         <label for="time4" class="custom-control-label">16 : 35</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="time5" value="17:40" name="jam_tayang">
+                        <input class="custom-control-input" type="checkbox" id="time5" value="17:40" name="jam_tayang[]">
                         <label for="time5" class="custom-control-label">17 : 40</label>
                         </div>
                     </div>
                     <div class="col">
                         <div class="custom-control custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" id="time6" value="19:30" name="jam_tayang">
+                        <input class="custom-control-input" type="checkbox" id="time6" value="19:30" name="jam_tayang[]">
                         <label for="time6" class="custom-control-label">19 : 30</label>
                         </div>
                     </div>
@@ -93,19 +100,19 @@
                     <div class="form-row">
                         <div class="col">
                             <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" id="time7" value="20:50" name="jam_tayang">
+                            <input class="custom-control-input" type="checkbox" id="time7" value="20:50" name="jam_tayang[]">
                             <label for="time7" class="custom-control-label">20 : 50</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" id="time8" value="22:20" name="jam_tayang">
+                            <input class="custom-control-input" type="checkbox" id="time8" value="22:20" name="jam_tayang[]">
                             <label for="time8" class="custom-control-label">22 : 20</label>
                             </div>
                         </div>
                         <div class="col">
                             <div class="custom-control custom-checkbox">
-                            <input class="custom-control-input" type="checkbox" id="time9" value="00:10" name="jam_tayang">
+                            <input class="custom-control-input" type="checkbox" id="time9" value="00:10" name="jam_tayang[]">
                             <label for="time9" class="custom-control-label">00 : 10</label>
                             </div>
                         </div>
@@ -117,11 +124,11 @@
                     <div class="custom-control custom-radio">
                         <div class="form-row">
                             <div class="col">
-                                <input class="custom-control-input" type="radio" id="price" name="price" value="35000">
+                                <input class="custom-control-input" type="radio" id="price" name="price" value="35000" required>
                                 <label for="price" class="custom-control-label">Rp. 35,000</label>
                             </div>
                             <div class="col">
-                                <input class="custom-control-input" type="radio" id="price2" name="price" value="50000">
+                                <input class="custom-control-input" type="radio" id="price2" name="price" value="50000" required>
                                 <label for="price2" class="custom-control-label">Rp. 50,000</label>
                             </div>
                         </div>

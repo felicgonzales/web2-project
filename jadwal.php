@@ -2,14 +2,14 @@
   require_once "lib/lib-login.php";
   require_once "lib/lib-db-film.php";
   $film_id = $_GET['id'];
-  $location = cariJadwal();
+  $location = jadwalFilm($film_id);
   $hitung = hitungFilm();
   $film = filmById($film_id);
 ?>
 <script>
     function getStudio(lokasi) {
         var film_id = <?php echo $film_id;?>;
-        console.log('getStudio.php?id='+lokasi+"&film_id="+film_id)
+        console.log('getStudio.php?id='+lokasi+'&film_id='+film_id)
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -43,7 +43,7 @@
             document.getElementById("rdBox3").innerHTML = this.responseText;
         }
         };
-        xmlhttp.open("GET", 'getTime.php?film_id='+film_id+"&studio_id="+id_studio+"&tgl='"+tgl+"'", true);
+        xmlhttp.open("GET", 'getTime.php?film_id='+film_id+"&studio_id="+id_studio+"&tgl="+tgl, true);
         xmlhttp.send();
     }
     function clearSelection(){
@@ -112,25 +112,35 @@
             </div>
             <div class="jdwl">
             <label for="lokasi" class="form-label">Pilih Lokasi</label>
-            
+            <select class="form-select" aria-label="Default select example" name="lokasi" id="lokasi" onchange="getStudio(this.options[this.selectedIndex].value)">
+                    <option selected>--- Pilih Lokasi ---</option>
+                    <?php 
+                        foreach($location as $row){
+                        
+                    ?>
+                        <option value="<?php echo $row['id'];?>"><?php echo $row['wilayah'].'-'.$row['nama_lokasi']; ?></option>
+                    <?php
+                        }
+                    ?>
+            </select>
 
 
-            <div class="dropdown">
+            <!-- <div class="dropdown">
         <div class="select" aria-label="Default select example" name="lokasi" id="lokasi" onchange="getStudio(this.options[this.selectedIndex].value)">
           <span class="selected">Sun Plaza</span>
           
           <div class="caret"></div>
         </div>
         
-        <ul class="menu">
+        <ul class="menu"> -->
         <?php 
-                        foreach($location as $row){
+                       // foreach($location as $row){
                         
                     ?>
           
-          <li value="<?php echo $row['id'];?>"><?php echo $row['wilayah'].'-'.$row['nama_lokasi']; ?></li>
+          <!-- <li value="<?php //echo $row['id'];?>"><?php //echo $row['wilayah'].'-'.$row['nama_lokasi']; ?></li> -->
           <?php
-                        }
+                       // }
                     ?>
         </ul>
       </div>
