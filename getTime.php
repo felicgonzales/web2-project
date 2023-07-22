@@ -3,10 +3,10 @@
     $film_id = $_GET['film_id'];
     $studio_id = $_GET['studio_id'];
     $tanggal_tayang = $_GET['tgl'];
-    var_dump($tanggal_tayang);
+    
     
     $arr_jam_tayang = getTime($film_id, $studio_id, $tanggal_tayang);
-    $text = '<label for="" class="form-label">Pilih Jam Tayang</label><br>';
+    $text = '<label for="" class="form-label" style="opacity : 70%;">Pilih Jam Tayang</label><br>';
     $i = 1;
     foreach($arr_jam_tayang as $row){
         $text .= '

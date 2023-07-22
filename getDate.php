@@ -6,7 +6,7 @@
     $arr_tanggal = getTanggal($film_id,$studio_id);
 
 
-    $text = '<label for="" class="form-label">Pilih Tanggal</label><br>';
+    $text = '<label for="" class="form-label" style="opacity : 70%;">Pilih Tanggal</label><br>';
     $i = 1;
     foreach($arr_tanggal as $row){
         $text .= '

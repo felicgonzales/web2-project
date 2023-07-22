@@ -1,3 +1,14 @@
+<?php
+
+  require_once "lib/lib-db-film.php";
+
+  $stud_id = $_GET['studio_id'];
+  $film_id = isset($_GET['film_id']) ? $_GET['film_id'] : 1;
+  $jam_tayang = $_GET['jam_tayang'];
+  $date = $_GET['date'];
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -46,9 +46,7 @@
         xmlhttp.open("GET", 'getTime.php?film_id='+film_id+"&studio_id="+id_studio+"&tgl="+tgl, true);
         xmlhttp.send();
     }
-    function clearSelection(){
-        window.location = "";
-    }
+   
 </script>
 
 <!DOCTYPE html>
@@ -111,9 +109,16 @@
                 <input type="text" name="film_id" value="<?php echo $film_id;?>">
             </div>
             <div class="jdwl">
-            <label for="lokasi" class="form-label">Pilih Lokasi</label>
-            <select class="form-select" aria-label="Default select example" name="lokasi" id="lokasi" onchange="getStudio(this.options[this.selectedIndex].value)">
-                    <option selected>--- Pilih Lokasi ---</option>
+            
+            <label for="lokasi" class="form-label" style="opacity : 70%;">Pilih Lokasi</label>
+            <div class="dropdown">
+                 
+            <select class="select" aria-label="Default select example" name="lokasi" id="lokasi" onchange="getStudio(this.options[this.selectedIndex].value)">
+                    <option class="selected">--- Pilih Lokasi ---</option>
+                   
+       
+   
+            
                     <?php 
                         foreach($location as $row){
                         
@@ -122,30 +127,13 @@
                     <?php
                         }
                     ?>
+                   
             </select>
 
 
-            <!-- <div class="dropdown">
-        <div class="select" aria-label="Default select example" name="lokasi" id="lokasi" onchange="getStudio(this.options[this.selectedIndex].value)">
-          <span class="selected">Sun Plaza</span>
-          
-          <div class="caret"></div>
-        </div>
         
-        <ul class="menu"> -->
-        <?php 
-                       // foreach($location as $row){
-                        
-                    ?>
-          
-          <!-- <li value="<?php //echo $row['id'];?>"><?php //echo $row['wilayah'].'-'.$row['nama_lokasi']; ?></li> -->
-          <?php
-                       // }
-                    ?>
-        </ul>
-      </div>
-      </div>
-      </div>
+    
+      
             <div class="jdwl">            
                 <div id="rdBox"></div>
             </div>
@@ -155,16 +143,15 @@
             <div class="jdwl">
                 <div id="rdBox3"></div>
             </div>
-            <div class="row mb-3 ms-3 me-3">
-                <button type="button" onclick="clearSelection()" class="btn btn-warning btn-block">Clear Selection</button>
-            </div>
+            
             <div class="row mb-3 ms-3 me-3">
                 <button type="submit" class="btn btn-primary btn-block">Pilih Kursi</button>
             </div>
          </form>
       </div>
-      
+      </div>
 </div>
+
 
   <script src="js/jadwal.js"></script>
 </body>
