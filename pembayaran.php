@@ -75,17 +75,17 @@
           <h2>:</h2>
         </div>
         <div class="rekap3">
-          <h2><?php echo $result_film['nama_film']; ?></h2>
+          <h2><?php echo $result_film['judul']; ?></h2>
           
           <h2> <?php echo $booked;?></h2>
-          <h2><?php echo $result_info_shows['studio_no'];?></h2>
+          <h2><?php echo $result_info_shows['no_studio'];?></h2>
           <h2><?php echo $result_info_shows['jam_tayang'];?></h2>
           <h2>Rp. <?php echo number_format($result_get['harga_tiket'],2,'.',',');?></h2>
           <h2><?php echo $result_info_shows['nama_lokasi'];?></h2>
         </div>
       </div>
       <div class="form-group mb-3">
-              <label class="mb-1" >Pembeli atas nama</label>
+              <label class="mb-1" style="color: white;">Pembeli atas nama</label>
               <input class="form-control text-uppercase" type="text" name="username" value="<?php echo $_SESSION['username']; ?>" readonly></input>
               <input class="form-control text-uppercase" type="text" name="shows_id" value="<?php echo $result_get['id']; ?>" readonly style="display:none;"></input>
               <input class="form-control text-uppercase" type="text" name="tickets" value="<?php echo $booked; ?>" readonly style="display:none;"></input>
