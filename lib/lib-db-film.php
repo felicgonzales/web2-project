@@ -330,3 +330,36 @@ function getTime($id_film, $id_studio, $date){
     ));
     return $query->fetchAll();
 }
+
+function hitungKursiStud($id){
+    global $conn;
+    $query = $conn->prepare("SELECT * FROM studio where id = :id");
+    $query->execute(array(
+        'id' => $id
+    ));
+    return $query->rowCount();
+}
+
+function hitungFilmById($id){
+	global $conn;
+
+	$query = $conn->prepare("SELECT * FROM film where id = :id");
+	$query->execute(array(
+        'id' => $id
+    ));
+
+    $hitung = $query->rowCount();
+    return $hitung;
+}
+
+function mencariJdwl($id_studio, $tanggal, $id_film, $jam){
+    global $conn;
+    $query = $conn->prepare("SELECT * FROM jadwal WHERE id_studio = :id_studio and tanggal_tayang = :tanggal_tayang and id_film = :id_film and jam_tayang IN (:jam_tayang)");
+    $query->execute(array(
+        'id_studio' => $id_studio,
+        'tanggal_tayang' => $tanggal,
+        'id_film' => $id_film,
+        'jam_tayang' => $jam
+    ));
+    return $query->fetch(PDO::FETCH_ASSOC);
+}
