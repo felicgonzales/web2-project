@@ -106,12 +106,12 @@
         ?>
     </div>
 
-
-        
     <p class="text" style="margin : 25px 0;">
       You have selected <span id="count">0</span> seats</span>
     </p>
-    <form method="post" id="form_checkout" action="payment_page.php">
+        
+  
+    <form method="post" id="form_checkout" action="pembayaran.php">
       <div class="row">
         <input type="text" style="display:none;" id="chair_list" name="chair_list">
         <input type="text" style="display:none;" id="studio_id" name="studio_id" value="<?php echo $stud_id;?>">
@@ -120,7 +120,7 @@
         <input type="text" style="display:none;" id="date" name="date" value="<?php echo $date;?>">
       </div>
       <div class="row" style="min-width : 450px;min-height : 40px;">
-        <button class="btn btn-primary" style="width : 100%;background-color : #35b27d; color:#fff;text-transform:uppercase;font-weight : 600;border-radius:25px;box-shadow : 2px 2px 5px #555;cursor:pointer;">Checkout</button>
+        <button class="btn btn-primary" style="width : 47%;background-color : #35b27d; color:#fff;text-transform:uppercase;font-weight : 600;border-radius:25px;box-shadow : 2px 2px 5px #555;cursor:pointer;">Checkout</button>
       </div>
 
     <script src="js/seat.js"></script>

@@ -48,7 +48,7 @@
                             if($studioHitung > 0){
                                 foreach($studioData as $row){
                                     ?>
-                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['nama_lokasi'].' - Studio : '.$row['no_studio'];?></option>
+                                        <option value="<?php echo $row['id']; ?>"><?php echo $row['nama_lokasi'].' - '. $row['wilayah'].' - Studio : '.$row['no_studio'];?></option>
                                     <?php
                                 }
                             }

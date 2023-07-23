@@ -167,7 +167,7 @@ function tambahStudio($id_lokasi, $no_studio, $pattern_kursi){
 
 function cariStudio(){
     global $conn;
-    $query = $conn->prepare("SELECT s.id, nama_lokasi, no_studio, pattern_kursi FROM studio s JOIN lokasi l ON l.id = s.id_lokasi");
+    $query = $conn->prepare("SELECT s.id, nama_lokasi, wilayah, no_studio, pattern_kursi FROM studio s JOIN lokasi l ON l.id = s.id_lokasi");
 
     $query->execute();
     return $query->fetchAll();
@@ -362,4 +362,29 @@ function mencariJdwl($id_studio, $tanggal, $id_film, $jam){
         'jam_tayang' => $jam
     ));
     return $query->fetch(PDO::FETCH_ASSOC);
+}
+
+function criJdwl($id){
+    global $conn;
+    $query = $conn->prepare("SELECT * FROM jadwal jp 
+    JOIN studio s ON s.id = jp.id_studio
+    JOIN lokasi l ON l.id = s.id_lokasi
+    WHERE jp.id = :id");
+    $query->execute(array(
+        'id' => $id
+    ));
+    return $query->fetch(PDO::FETCH_ASSOC);
+}
+
+function perbaharuiJadwal ($id, $arr_book, $sold, $left){
+    global $conn;
+    $query = $conn->prepare("UPDATE jadwalpenayangan
+    SET kursi_terjual = :kursi_terjual, tiket_terjual = :tiket_terjual, tiket_tersedia = :tiket_tersedia
+    WHERE id = :id");
+    $query->execute(array(
+        'kursi_terjual' => $arr_book,
+        'id' => $id,
+        'tiket_terjual' => $sold,
+        'tiket_tersedia' => $left
+    ));
 }
