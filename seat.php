@@ -24,7 +24,7 @@
   </head>
   <body>
     <div class="movie-container">
-      <label>Sun Plaza </label>
+      <label><?php echo $film["nama_film"];?> </label>
       <select id="movie">
         <option value="45000">Regular Rp 45.000</option>
         <option value="60000">Ultra Xd Rp 60.000</option>
