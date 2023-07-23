@@ -1,40 +1,42 @@
 <?php
  require_once "lib/lib-db-film.php";
-if(isset($_POST)){
-  $stud_id = $_POST['studio_id'];
-  $film_id = $_POST['film_id'];
-  $jam_tayang = $_POST['jam_tayang'];
-  $date = $_POST['date'];
-  $booked = $_POST['chair_list'];
-  $arr_book = str_replace(',',';',$booked).';'; #E7;E8 [E7,E8]
-  $arr_kursi_pesan = explode(',',$booked);
-  $count_jlh = count($arr_kursi_pesan);
-  $result_get = mencariJdwl($stud_id,$date,$film_id,$jam_tayang);
-  $id_shows = $result_get['id'];
-  $result_info_shows = criJdwl($id_shows);
-  $result_film = filmById($film_id);
+  if(isset($_POST)){
+    $stud_id = $_POST['studio_id'];
+    $film_id = $_POST['film_id'];
+    $jam_tayang = $_POST['jam_tayang'];
+    $date = $_POST['date'];
+    $booked = $_POST['chair_list'];
+    $arr_book = str_replace(',',';',$booked).';'; #E7;E8 [E7,E8]
+    $arr_kursi_pesan = explode(',',$booked);
+    $count_jlh = count($arr_kursi_pesan);
+    $result_get = mCariJdwl($stud_id,$date,$film_id,$jam_tayang);
+    $id_shows = $result_get['id'];
+    $result_info_shows = criJdwl($id_shows);
+    $result_film = filmById($film_id);
 
-  $flag = 0;
-  foreach($arr_kursi_pesan as $kursi){
-      if(strpos($result_get['kursi_terjual'],$kursi) != ''){
-          $flag = 1;
-          break;
-      }
-  }
-  if($flag == 0){
-      if($result_get['kursi_terjual'] != ''){
-          $arr_book .= $result_get['kursi_terjual'];
-      }
-      $sold = $result_get['tiket_terjual'] + $count_jlh;
-      $left = $result_get['tiket_tersedia'] - $count_jlh; 
-      $id = $result_get['id'];
-      $result = perbaharuiJadwal($id, $arr_book, $sold, $left);
-      if(!$result){
+    $flag = 0;
+    foreach($arr_kursi_pesan as $kursi){
+        if(strpos($result_get['kursi_terjual'],$kursi) != ''){
+            $flag = 1;
+            break;
+        }
+    }
+    if($flag == 0){
+        if($result_get['kursi_terjual'] != ''){
+            $arr_book .= $result_get['kursi_terjual'];
+        }
+        $sold = $result_get['tiket_terjual'] + $count_jlh;
+        $left = $result_get['tiket_tersedia'] - $count_jlh; 
+        $id = $result_get['id'];
+        $result = perbaharuiJadwal($id, $arr_book, $sold, $left);
+        if(isset($result)){
           echo "Error";
           die();
-      }
+        }else{
+          
+        }
+    }
   }
-}
 ?>
 
 <!DOCTYPE html>

@@ -378,7 +378,7 @@ function criJdwl($id){
 
 function perbaharuiJadwal ($id, $arr_book, $sold, $left){
     global $conn;
-    $query = $conn->prepare("UPDATE jadwalpenayangan
+    $query = $conn->prepare("UPDATE jadwal
     SET kursi_terjual = :kursi_terjual, tiket_terjual = :tiket_terjual, tiket_tersedia = :tiket_tersedia
     WHERE id = :id");
     $query->execute(array(
@@ -387,4 +387,16 @@ function perbaharuiJadwal ($id, $arr_book, $sold, $left){
         'tiket_terjual' => $sold,
         'tiket_tersedia' => $left
     ));
+}
+
+function mCariJdwl($id_studio, $tanggal, $id_film, $jam){
+    global $conn;
+    $query = $conn->prepare("SELECT * FROM jadwal WHERE id_studio = :id_studio and tanggal_tayang = :tanggal_tayang and id_film = :id_film and jam_tayang  =:jam_tayang");
+    $query->execute(array(
+        'id_studio' => $id_studio,
+        'tanggal_tayang' => $tanggal,
+        'id_film' => $id_film,
+        'jam_tayang' => $jam
+    ));
+    return $query->fetch(PDO::FETCH_ASSOC);
 }

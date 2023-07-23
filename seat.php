@@ -117,7 +117,7 @@
         <input type="text" style="display:none;" id="studio_id" name="studio_id" value="<?php echo $stud_id;?>">
         <input type="text" style="display:none;" id="film_id" name="film_id" value="<?php echo $film_id;?>">
         <input type="text" style="display:none;" id="jam_tayang" name="jam_tayang" value="<?php echo $jam_tayang;?>">
-        <input type="text" style="display:none;" id="date" name="date" value="<?php echo $date;?>">
+        <input type="text" style="display:none;" id="date" name="date" value="<?php echo $tanggal_tayang; ?>">
       </div>
       <div class="row" style="min-width : 450px;min-height : 40px;">
         <button class="btn btn-primary" style="width : 47%;background-color : #35b27d; color:#fff;text-transform:uppercase;font-weight : 600;border-radius:25px;box-shadow : 2px 2px 5px #555;cursor:pointer;">Checkout</button>
