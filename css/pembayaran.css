@@ -1,0 +1,228 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Acme&family=Hind&family=Kotta+One&family=Nokora:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&family=Tilt+Warp&display=swap");
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css");
+
+.pembayaran-container hr {
+  opacity: 50%;
+}
+body {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #03001c;
+}
+
+* {
+  box-sizing: border-box;
+}
+.rekap {
+  margin-top: 60px;
+  display: flex;
+}
+.rekap1 h2 {
+  padding-bottom: 40px;
+  font-family: "Noticia Text";
+  color: #fff;
+  font-size: 20px;
+
+  width: 100%;
+}
+
+.rekap1 {
+  margin-left: 100px;
+}
+
+.rekap2 h2 {
+  padding-bottom: 40px;
+  font-family: "Noticia Text";
+  color: #fff;
+  font-size: 20px;
+
+  width: 100%;
+}
+
+.rekap2 {
+  margin-left: 50px;
+}
+
+.rekap3 h2 {
+  padding-bottom: 40px;
+  font-family: "Noticia Text";
+  color: #fff;
+  font-size: 20px;
+
+  width: 100%;
+}
+
+.rekap3 {
+  margin-left: 70px;
+}
+
+.pembayaran-container .titel h2 {
+  height: 0%;
+  margin-top: 40px;
+}
+
+.total-biaya {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 100px;
+  height: 40px;
+  margin-bottom: 30px;
+}
+
+.total-biaya h2#kiri {
+  padding-bottom: 40px;
+  font-family: "Noticia Text";
+  color: #fff;
+  font-size: 20px;
+  padding-right: 177px;
+}
+
+.total-biaya h2#tengah {
+  padding-bottom: 40px;
+  font-family: "Noticia Text";
+  color: #fff;
+  font-size: 20px;
+}
+
+.total-biaya h2#kanan {
+  padding-bottom: 40px;
+  font-family: "Noticia Text";
+  color: #fff;
+  font-size: 20px;
+  padding-left: 72px;
+}
+
+.buton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+}
+button.pay {
+  border: none;
+  padding: 10px 30px;
+  font-size: 20px;
+  position: relative;
+  background: transparent;
+  color: #ffa500;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  border: 3px solid #ffa500;
+  cursor: pointer;
+  transition: all 0.7s;
+  overflow: hidden;
+  border-radius: 100px;
+}
+
+button.pay:hover {
+  color: #000;
+}
+
+.buton span {
+  transition: all 0.7s;
+  z-index: -1;
+}
+
+button.pay .first {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  background: #ffa500;
+}
+
+button.pay:hover .first {
+  top: 0;
+  right: 0;
+}
+button.pay .second {
+  content: "";
+  position: absolute;
+  left: 25%;
+  top: -100%;
+  height: 100%;
+  width: 25%;
+  background: #ffa500;
+}
+
+button.pay:hover .second {
+  top: 0;
+  left: 50%;
+}
+
+button.pay .third {
+  content: "";
+  position: absolute;
+  left: 50%;
+  height: 100%;
+  top: 100%;
+  width: 25%;
+  background: #ffa500;
+}
+
+button.pay:hover .third {
+  top: 0;
+  left: 25%;
+}
+
+button.pay .fourth {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 0;
+  height: 100%;
+  width: 25%;
+  background: #ffa500;
+}
+
+button.pay:hover .fourth {
+  top: 0;
+  left: 0;
+}
+
+.titel h1 {
+  width: 100%;
+  text-align: center;
+  height: 110px;
+
+  color: rgba(255, 0, 0, 0.8500000238418579);
+
+  position: relative;
+  top: 10px;
+
+  font-size: 100px;
+  font-family: "Acme", sans-serif;
+}
+.titel h2 {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8500000238418579);
+  position: relative;
+
+  font-size: 30px;
+  font-family: "Acme", sans-serif;
+}
+
+.pembayaran-container {
+  width: 50%;
+  margin: auto;
+
+  border-style: ridge;
+  border-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.col-lg-4 {
+  padding: auto;
+  padding-left: 30px;
+}

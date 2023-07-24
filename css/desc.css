@@ -1,0 +1,162 @@
+body {
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #03001c;
+}
+
+* {
+  box-sizing: border-box;
+}
+.bag-01 {
+  width: 100%;
+  height: 100px;
+}
+.bag-02 {
+  width: 100%;
+}
+
+.utama img {
+  width: 200px;
+
+  margin-left: 100px;
+  margin-top: 70px;
+  margin-right: 50px;
+}
+.gambar {
+  display: flex;
+  margin-bottom: 80px;
+}
+
+.sect {
+  color: #fff;
+  margin-top: 70px;
+  width: 30%;
+}
+.sect h1 {
+  font-family: "nokora";
+  padding-bottom: 10px;
+}
+.sect p {
+  font-weight: normal;
+  font-family: "Noticia Text";
+  opacity: 70%;
+  line-height: 2;
+}
+
+.sinop {
+  color: #fff;
+  margin-top: 80px;
+  width: 100%;
+}
+
+.sinop h2 {
+  font-family: "nokora";
+  padding-bottom: 10px;
+}
+
+.sinop p {
+  font-weight: normal;
+  font-family: "Noticia Text";
+  opacity: 70%;
+  margin-right: 100px;
+  text-align: justify;
+  line-height: 1.5;
+  border: 2px solid #bbbbbb;
+  border-radius: 10px;
+  padding: 10px;
+}
+.buton {
+  display: flex;
+  margin-left: 50px;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+}
+.buton a {
+  height: 70px;
+}
+button.pay {
+  border: none;
+  padding: 10px 30px;
+  font-size: 14px;
+  position: relative;
+  background: transparent;
+  color: #ffa500;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border: 2px solid #ffa500;
+  cursor: pointer;
+  transition: all 0.7s;
+  overflow: hidden;
+  border-radius: 100px;
+}
+
+button.pay:hover {
+  color: #000;
+}
+
+.buton span {
+  transition: all 0.7s;
+  z-index: -1;
+}
+
+button.pay .first {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  background: #ffa500;
+}
+
+button.pay:hover .first {
+  top: 0;
+  right: 0;
+}
+button.pay .second {
+  content: "";
+  position: absolute;
+  left: 25%;
+  top: -100%;
+  height: 100%;
+  width: 25%;
+  background: #ffa500;
+}
+
+button.pay:hover .second {
+  top: 0;
+  left: 50%;
+}
+
+button.pay .third {
+  content: "";
+  position: absolute;
+  left: 50%;
+  height: 100%;
+  top: 100%;
+  width: 25%;
+  background: #ffa500;
+}
+
+button.pay:hover .third {
+  top: 0;
+  left: 25%;
+}
+
+button.pay .fourth {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 0;
+  height: 100%;
+  width: 25%;
+  background: #ffa500;
+}
+
+button.pay:hover .fourth {
+  top: 0;
+  left: 0;
+}

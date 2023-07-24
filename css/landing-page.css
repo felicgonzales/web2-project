@@ -1,0 +1,240 @@
+/* Bagian 1 - Movie */
+/* -------------------------------------------------------------------------------------------- */
+.bag-01{
+    width: 100%;
+    height: 550px;
+    background: #03001c;
+}
+
+.new-movie{
+    width: 100%;
+    height: 450px;
+    background-color: #03001c;
+    position: relative;
+    top: 100px;
+}
+
+.new-movie .new1{
+    width: 280px;
+    height: 60px;
+    font-size: 18px;
+    /* background-color: #fff; */
+    margin: 0 auto;
+    color: #fff;
+    position: relative;
+    top: 20px;
+    text-align: center;
+    font-family: 'Kotta One', serif;
+}
+
+.new-movie .new2{
+    width: 1300px;
+    height: 320px;
+    margin: 0 auto;
+    /* background-color: #fff; */
+    position: relative;
+    top: 50px;
+}
+
+.new2 .mov-img{
+    font-size: 0px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.mov-img img:first-child{
+    margin-left: 0px;
+}
+
+/* Bagian 2 - Video & Trailer */
+/* -------------------------------------------------------------------------------------------- */
+.bag-02{
+    width: 100%;
+    height: 550px;
+}
+
+.bag2-t{
+    width: 170px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-family: 'Nokora', sans-serif;
+    background-color: #fff;
+    position: relative;
+    top: 30px;
+}
+
+.vid1{
+    width: 1200px;
+    height: 450px;
+    margin: 0 auto;
+    position: relative;
+    top: 60px;
+}
+
+.vid1 video{
+    width: 500px;
+    border-radius: 10px;
+    position: relative;
+    left: 30px;
+    top: 20px;
+}
+
+.vid1 .vid-nav{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vid1 .vid-nav li{
+    list-style: none;
+    margin: 0 10px;
+    opacity: 0.7;
+    transition: 0.5s;
+}
+
+.vid1 .vid-nav li:hover{
+    opacity: 1;
+}
+
+.vid1 .vid-nav li img{
+    width: 160px;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+
+.vid1 .vid-nav li img:hover{
+    width: 240px;
+}
+
+.vid2{
+    width: 500px;
+    height: 250px;
+    background-color: #fff;
+    margin: 0 auto;
+    position: relative;
+    bottom: 370px;
+    left: 230px;
+}
+
+.vid2 #vid-id1{
+    width: 600px;
+    height: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.vid2 #vid-id2{
+    width: 600px;
+    height: 350px;
+    font-size: 20px;
+    font-family: 'Noticia Text', serif;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+/* Bagian 3 - Partner */
+/* -------------------------------------------------------------------------------------------- */
+
+.bag-03{
+    width: 100%;
+    height: 600px;
+}
+
+.bag3-p1{
+    width: 100%;
+    height: 250px;
+    background-color: #e8e6e3;
+}
+
+.bag3-p1 p{
+    width: 700px;
+    height: 100px;
+    margin: 0 auto;
+    font-size: 27px;
+    font-family: Dubai;
+    text-align: center;
+    position: relative;
+    top: 30px;
+}
+
+.bag3-p1 .but-buy{
+    width: 150px;
+    margin: 0 auto;
+    position: relative;
+    top: 60px;
+}
+
+.but-buy button{
+    color: rgba(255,255,255,0.8500000238418579);
+    width: 150px;
+    height: 46px;
+    background-color: #03001c;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    font-size: 18px;
+    font-family: 'Hind', sans-serif;
+}
+
+.but-buy button:hover{
+    color: rgba(0, 0, 0);
+    width: 150px;
+    height: 46px;
+    background-color: #e8e6e3;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    font-size: 18px;
+    font-family: 'Hind', sans-serif;
+}
+
+.bag3-p2{
+    width: 100%;
+    height: 350px;
+}
+
+.bag3-p2 h2{
+    width: 200px;
+    height: 40px;
+    margin: 0 auto;
+    font-size: 25px;
+    font-family: Dubai;
+    text-align: center;
+    position: relative;
+    top: 30px;
+}
+
+.bag3-p2 .img-part{
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 870px;
+    height: 200px;
+    position: relative;
+    top: 100px;
+    justify-content: center;
+}
+
+.img-part img{
+    width: 200px;
+    padding: 0 85px;
+}
+
+/* Bagian 4 - Footer */
+/* -------------------------------------------------------------------------------------------- */
+
+.bag-04{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    background-image: linear-gradient(210deg,#2d2b3d,#03001c);
+    display: flex;
+}
