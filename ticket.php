@@ -3,8 +3,6 @@
     require_once "lib/lib-db-film.php";
     $user_id = $_SESSION['user_id'];
     $data = panggilInvoice($user_id);
-    var_dump($data);
-Die;
 ?>
 
 <!DOCTYPE html>
@@ -20,13 +18,6 @@ Die;
 
     <!-- Style -->
     <link rel="stylesheet" href="css/all.css">
-    <?php
-        if (cekLogin()) { ?>
-            <link rel="stylesheet" href="css/navbar-login.css">
-        <?php }else{ ?>
-            <link rel="stylesheet" href="css/navbar.css">
-        <?php }
-    ?>
     <link rel="stylesheet" href="css/ticket-page.css">
     <link rel="stylesheet" href="css/footer.css">
 </head>
@@ -34,6 +25,13 @@ Die;
 <!-- Body -->
 <body>
     <!-- Bagian 1 - Navbar & Slider -->
+    <?php
+        if (cekLogin()) { ?>
+            <link rel="stylesheet" href="css/navbar-login.css">
+        <?php }else{ ?>
+            <link rel="stylesheet" href="css/navbar.css">
+        <?php }
+    ?>
     <div class="ticket-page">
         <!-- Navbar -->
         <?php 
@@ -48,7 +46,7 @@ Die;
       <div class="his-cont">
         <h1 class="his-1"> History</h1>
         <?php 
-                    foreach($data as $row){
+                    foreach($data as $rows){
                 ?>
         <div class="ticket-show">
         
