@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2023 at 06:56 AM
+-- Generation Time: Jul 24, 2023 at 04:27 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -81,8 +81,8 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id`, `id_studio`, `id_film`, `tanggal_tayang`, `jam_tayang`, `tiket_tersedia`, `tiket_terjual`, `harga_tiket`, `kursi_terjual`) VALUES
-(7, 2, 1, '2023-07-09', '12:15:00', -12, 12, 50000, 'H8;H10;D5;A5;A6;A7;A8;A9;A4;C7;C8;C9;'),
-(8, 2, 1, '2023-07-10', '15:05:00', -56, 56, 35000, 'H4;H7;C5;C6;D6;E6;F6;G6;H6;I6;I8;D10;E8;E10;F8;F9;E9;C11;C12;D11;D12;E11;E12;F11;F12;F10;F10;F10;F10;F10;F10;F10;F10;F10;F10;F10;G9;G10;H10;I9;I10;J7;J8;J9;J10;B8;B9;C8;C9;D8;G7;G8;F7;F7;A4;A5;');
+(7, 2, 1, '2023-07-09', '12:15:00', -39, 39, 50000, 'I9;I10;J8;J9;H6;F8;D7;H3;G6;D6;B3;B4;B7;B8;D8;E6;C5;E8;C6;F4;F6;E7;C4;B9;B6;B5;D4;H8;H10;D5;A5;A6;A7;A8;A9;A4;C7;C8;C9;'),
+(8, 2, 1, '2023-07-10', '15:05:00', -69, 69, 35000, 'A8;A10;B10;B6;I7;C10;H8;H9;J6;D7;D7;A6;B7;H4;H7;C5;C6;D6;E6;F6;G6;H6;I6;I8;D10;E8;E10;F8;F9;E9;C11;C12;D11;D12;E11;E12;F11;F12;F10;F10;F10;F10;F10;F10;F10;F10;F10;F10;F10;G9;G10;H10;I9;I10;J7;J8;J9;J10;B8;B9;C8;C9;D8;G7;G8;F7;F7;A4;A5;');
 
 -- --------------------------------------------------------
 
@@ -123,8 +123,7 @@ CREATE TABLE `pembelian` (
 --
 
 INSERT INTO `pembelian` (`id`, `id_user`, `id_jadwal`, `jmlh_tiket`, `detail_tiket`, `tanggal_transaksi`) VALUES
-(1, 28, 7, 1, 'H10', '2023-07-24 06:55:47'),
-(2, 28, 7, 1, 'H8', '2023-07-24 06:55:51');
+(34, 31, 7, 2, 'I9,I10', '2023-07-24 16:01:21');
 
 -- --------------------------------------------------------
 
@@ -168,10 +167,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `gender`, `no_telp`, `role`) VALUES
-(24, 'admin', '$2y$10$SzLdYK7YXn5nVqhDcSuqJePK5UXwjL6oM0CZWJIys8BRWJw8AxyJW', 'felgonn123@admin.tix', '', '', 'Admin'),
-(27, 'felicgon', '$2y$10$/mqk/UlOHtK0VEEF1dsGPeoHHwgRhV86ZpUr9187hxC9msl/P3uwC', 'felicgonzales@users.com', 'Laki-Laki', '085362225002', 'Users'),
-(28, 'pp', '$2y$10$WyJhFZj70FDsxLxSvTmLSeRccTkGvo89NBk4M.c9d1AS.yWA3ntIy', 'pp@gmail.com', '', '', 'Users'),
-(29, 'Felic', '$2y$10$tkk4izDTRQjojsLTMrpOp.YJE/SW99cJiFeskgF60yL.dINnCXKY2', 'Fredowijaya36@gmail.com', '', '', 'Users');
+(31, 'user', '$2y$10$EFnPLE9dy24yDsx9SCGxRuOOfjq5F7XIzYMpJ8BqPV3i62E4By/sm', 'user@gmail.com', '', '', 'Users'),
+(32, 'admin', '$2y$10$mhIf0bRy9M5amRjP7LoaPORuWktxfoHEBq4/Cso5gXLZj38MfiV9G', '', '', '', 'Admin');
 
 --
 -- Indexes for dumped tables
@@ -240,7 +237,7 @@ ALTER TABLE `lokasi`
 -- AUTO_INCREMENT for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `studio`
@@ -252,7 +249,7 @@ ALTER TABLE `studio`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
