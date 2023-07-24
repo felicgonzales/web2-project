@@ -51,8 +51,8 @@
                     foreach($data as $rows){
                 ?>
           <div class="tix-1">
-            <img src="<?= $row['foto']; ?>" alt="" />
-            <p><?=$row['nama_film']; ?><br />Animation - 122m<br />VIP 1<br />17.55 - 19.57</p>
+            <img src="<?php echo $rows['foto']; ?>" alt="" />
+            <p><?php echo $rows['judul']; ?><br />Animation - 122m<br />VIP 1<br />17.55 - 19.57</p>
             <p class="code">Your code is <br />3E423A</p>
             <button class="ticket-1" onclick="window.location.href = 'qr-code.html';">Qr Code</button>
           </div>

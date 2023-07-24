@@ -461,8 +461,8 @@ function invoice(){
 
 function panggilInvoice($id){
     global $conn;
-    $query = $conn->prepare("SELECT p.*, jp.harga_tiket, jp.tanggal_tayang, jp.jam_tayang, s.no_studio, l.wilayah, l.nama_lokasi, f.judul FROM pembelian p
-    JOIN jadwal jp ON jp.id = p.id_shows
+    $query = $conn->prepare("SELECT p.*, jp.harga_tiket, jp.tanggal_tayang, jp.jam_tayang, s.no_studio, l.wilayah, l.nama_lokasi, f.judul, f.foto FROM pembelian p
+    JOIN jadwal jp ON jp.id = p.id_jadwal
     JOIN studio s ON s.id = jp.id_studio
     JOIN film f ON f.id = jp.id_film
     JOIN lokasi l ON l.id = s.id_lokasi
