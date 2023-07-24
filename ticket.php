@@ -17,8 +17,10 @@
     <title>F-TIX | Ticket</title>
 
     <!-- Style -->
-    <link rel="stylesheet" href="css/all.css">
     <link rel="stylesheet" href="css/ticket-page.css">
+     <link rel="stylesheet" href="css/landing-page.css">
+   
+    
     <link rel="stylesheet" href="css/footer.css">
 </head>
 
@@ -52,21 +54,28 @@
         
           <div class="tix-1">
             <img src="<?php echo $rows['foto']; ?>" alt="" />
-            <p><?php echo $rows['judul']; ?><br />Animation - 122m<br />VIP 1<br />17.55 - 19.57</p>
-            <p class="code">Your code is <br />3E423A</p>
-            <button class="ticket-1" onclick="window.location.href = 'qr-code.html';">Qr Code</button>
+            <p><?php echo $rows['judul']; ?><br /><?php echo $rows['wilayah'].' - '.$rows['nama_lokasi']; ?><br /><?php echo "Studio ".$rows['no_studio'];?><br /><?php echo "Date: " .$rows['tanggal_tayang'].', Time: '.$rows['jam_tayang'];?></p>
+            <p class="code"><?php echo " Jumlah Tiket : ". $rows['jmlh_tiket']; ?> <br /><?php echo "Detail : ". $rows['detail_tiket'];?></p>
+            
           </div>
+          </div>
+            </div>
+            </div>
           <?php
                     }
                 ?>
         </div>
-      </div>
-    </div>
-    <!-- Bagian - - Footer -->
-    <div class="bag-footer">
+     
+        </div>
+     
+       
+    
+     <!-- Bagian 4 - Footer -->
+     <div class="bag-04">
         <?php include"php/footer.php";?>
     </div>
 
+    
     <!-- Script JS -->
     <script src="js/navbar-login.js"></script>
 
