@@ -213,4 +213,16 @@ button.pay:hover .fourth {
 .pembayaran-container {
   width: 50%;
   margin: auto;
+
+  border-style: ridge;
+  border-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.col-lg-4 {
+  padding: auto;
+  padding-left: 30px;
 }

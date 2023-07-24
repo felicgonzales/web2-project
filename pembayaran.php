@@ -56,6 +56,10 @@
         <h2>Pembayaran Tiket</h2>
       </div>
       <div class="rekap">
+     
+              <div class="col-lg-4">
+                <img src="<?php echo $result_film['foto'];?>" alt="" class="img-fluid">
+              </div>
         <div class="rekap1">
           <h2>Judul Film</h2>
           
@@ -84,6 +88,7 @@
           <h2><?php echo $result_info_shows['nama_lokasi'];?></h2>
         </div>
       </div>
+      <form action="checkout.php" method="POST">
       <div class="form-group mb-3">
               <label class="mb-1" style="color: white;">Pembeli atas nama</label>
               <input class="form-control text-uppercase" type="text" name="username" value="<?php echo $_SESSION['username']; ?>" readonly></input>
@@ -94,13 +99,13 @@
       <div class="total-biaya">
         <h2 id="kiri">Total Biaya</h2>
         <h2 id="tengah">:</h2>
-        <h2 id="kanan">Rp 150.000</h2>
+        <h2 id="kanan"><?php echo number_format($count_jlh * $result_get['harga_tiket'],2,'.',',');?></h2>
       </div>
       
       <hr size="" width="100%" color="white" />
       <div class="buton">
         <a href="#">
-          <button class="pay" onclick="window.location.href = 'purchase-after-login.html';">
+          <button class="pay"id="PayButton" type = "submit">
             Pay Now
             <span class="first"></span>
             <span class="second"></span>
@@ -108,7 +113,9 @@
             <span class="fourth"></span>
           </button>
         </a>
+        
       </div>
     </div>
+    </form>
   </body>
 </html>

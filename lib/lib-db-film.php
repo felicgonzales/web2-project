@@ -400,3 +400,48 @@ function mCariJdwl($id_studio, $tanggal, $id_film, $jam){
     ));
     return $query->fetch(PDO::FETCH_ASSOC);
 }
+
+function cariAkunByUser($username){
+    global $conn;
+
+    $query = $conn->prepare("SELECT * FROM users where username = :username");
+    $query->execute(array(
+        'username'=>$username
+    ));
+    return $query-fetch(PDO::FETCH_ASSOC);
+}
+
+function cariPembelian ($id_user, $shows_id, $tickets){
+    global $conn;
+    $query = $conn->prepare("SELECT * FROM pembelian where id_user = :id_user and id_jadwal = :id_jadwal and detail_tiket = :detail_tiket");
+    $query->execute(array(
+        'id_user' => $id_user,
+        'id_jadwal' =>  $shows_id,
+        'detail_tiket' => $tickets
+    ));
+    return $query->fetch(PDO::FETCH_ASSOC);
+}
+
+function hitungPembelian($id_user, $shows_id, $tickets){
+    global $conn;
+    $query = $conn->prepare("SELECT * FROM pembelian where id_user = :id_user and id_jadwal = :id_jadwal and detail_tiket = :detail_tiket");
+    $query->execute(array(
+        'id_user' => $id_user,
+        'id_jadwal' =>  $shows_id,
+        'detail_tiket' => $tickets
+    ));
+    return $query->rowCount();
+}
+
+function addPembelian ($id_user, $shows_id, $tickets, $cnt_tickets, $date){
+    global $conn;
+    $query = $conn->prepare("INSERT INTO pembelian (id_user,id_jadwal,detail_tiket,jmlh_tiket,tanggal_transaksi)
+    VALUES (:id_user, :id_jadwal , :detail_tiket , :jmlh_tiket , :tanggal_transaksi)");
+    $query->execute(array(
+        'id_user' => $id_user,
+        'id_jadwal' => $shows_id,
+        'detail_tiket' => $tickets,
+        'jmlh_tiket' => $cnt_tickets,
+        'tanggal_transaksi' => $date
+    ));
+}
