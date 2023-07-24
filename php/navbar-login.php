@@ -33,4 +33,39 @@
             </div>
         </div>
     </nav>
+    
 </div>
+
+<!-- <div class="container-fluid">
+        <?php 
+            if(isset($_SESSION['success'])){
+                ?>
+                <div class="alert alert-success d-flex alert-dismissible align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <div>
+                        <?php 
+                            echo $_SESSION['success'];
+                            unset($_SESSION['success']);
+                        ?>                        
+                    </div>
+                </div>
+                <?php
+            }
+            else if (isset($_SESSION['error'])){
+                ?>
+                <div class="alert alert-danger d-flex alert-dismissible align-items-center" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                    <div>
+                        <?php 
+                            echo $_SESSION['error'];
+                            unset($_SESSION['error']);
+                        ?>
+                    </div>
+                </div>
+                <?php
+            }
+        ?>
+    </div> -->
+

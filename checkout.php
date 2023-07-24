@@ -1,5 +1,6 @@
 <?php
 require_once "lib/lib-db-film.php";
+
 if(isset($_POST)){
         $username = $_POST['username'];
         $shows_id = $_POST['shows_id'];
