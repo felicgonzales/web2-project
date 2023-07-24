@@ -408,7 +408,7 @@ function cariAkunByUser($username){
     $query->execute(array(
         'username'=>$username
     ));
-    return $query-fetch(PDO::FETCH_ASSOC);
+    return $query->fetch(PDO::FETCH_ASSOC);
 }
 
 function cariPembelian ($id_user, $shows_id, $tickets){
