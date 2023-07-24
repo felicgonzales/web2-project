@@ -1,5 +1,7 @@
 <?php
     require_once "lib/lib-login.php";
+    $user_id = $_SESSION['user_id'];
+    $data = panggilInvoice($user_id);
 ?>
 
 <!DOCTYPE html>

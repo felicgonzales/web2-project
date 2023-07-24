@@ -8,12 +8,11 @@ if(isset($_POST)){
         $result_user = cariAkunByUser($username);
         $date = date('Y-m-d H:i:s');
         $id_user = $result_user['id'];  
-        $result_check = cariPembelian($id_user, $shows_id, $tickets);
-        $hitung_check = hitungPembelian($id_user, $shows_id, $tickets);
-        if($hitung_check < 1){
-            $result = addPembelian($id_user, $shows_id, $tickets, $cnt_tickets, $date);
-            print_r($result);
-            if($result){
+        $cariPembeli = cariPembelian($id_user, $shows_id, $tickets);
+        $hitungPembeli = hitungPembelian($id_user, $shows_id, $tickets);
+        if($hitungPembeli < 1){
+            $hasil = addPembelian($id_user, $shows_id, $tickets, $cnt_tickets, $date);
+            if($hasil > 0){
                 $_SESSION['success'] = "Pemesanan Tiket Berhasil";
                 return header('Location: index.php');
             }

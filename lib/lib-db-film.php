@@ -413,22 +413,22 @@ function cariAkunByUser($username){
 
 function cariPembelian ($id_user, $shows_id, $tickets){
     global $conn;
-    $query = $conn->prepare("SELECT * FROM pembelian where id_user = :id_user and id_jadwal = :id_jadwal and detail_tiket = :detail_tiket");
+    $sql = "'$tickets'";
+    $query = $conn->prepare("SELECT * FROM pembelian where id_user = :id_user and id_jadwal = :id_jadwal and detail_tiket = $sql");
     $query->execute(array(
         'id_user' => $id_user,
-        'id_jadwal' =>  $shows_id,
-        'detail_tiket' => $tickets
+        'id_jadwal' =>  $shows_id
     ));
     return $query->fetch(PDO::FETCH_ASSOC);
 }
 
 function hitungPembelian($id_user, $shows_id, $tickets){
     global $conn;
-    $query = $conn->prepare("SELECT * FROM pembelian where id_user = :id_user and id_jadwal = :id_jadwal and detail_tiket = :detail_tiket");
+    $sql = "'$tickets'";
+    $query = $conn->prepare("SELECT * FROM pembelian where id_user = :id_user and id_jadwal = :id_jadwal and detail_tiket = $sql");
     $query->execute(array(
         'id_user' => $id_user,
-        'id_jadwal' =>  $shows_id,
-        'detail_tiket' => $tickets
+        'id_jadwal' =>  $shows_id
     ));
     return $query->rowCount();
 }
@@ -444,4 +444,31 @@ function addPembelian ($id_user, $shows_id, $tickets, $cnt_tickets, $date){
         'jmlh_tiket' => $cnt_tickets,
         'tanggal_transaksi' => $date
     ));
+    return $query->rowCount();
+}
+
+function invoice(){
+    global $conn;
+    $query = $conn->prepare("SELECT p.*, jp.harga_tiket, jp.tanggal_tayang, jp.jam_tayang, s.no_studio, l.wilayah, l.nama_lokasi, f.judul FROM pembelian p
+    JOIN jadwal jp ON jp.id = p.id_jadwal
+    JOIN studio s ON s.id = jp.id_studio
+    JOIN film f ON f.id = jp.id_film
+    JOIN lokasi l ON l.id = s.id_lokasi
+    ORDER BY p.id ASC");
+    $query->execute();
+    return $query->fetchAll();
+}
+
+function panggilInvoice($id){
+    global $conn;
+    $query = $conn->prepare("SELECT p.*, jp.harga_tiket, jp.tanggal_tayang, jp.jam_tayang, s.no_studio, l.wilayah, l.nama_lokasi, f.judul FROM pembelian p
+    JOIN jadwal jp ON jp.id = p.id_shows
+    JOIN studio s ON s.id = jp.id_studio
+    JOIN film f ON f.id = jp.id_film
+    JOIN lokasi l ON l.id = s.id_lokasi
+    WHERE p.id_user = :id_user ORDER BY p.id ASC");
+    $query->execute(array(
+        'id_user' => $id
+    ));
+    return $query->fetchAll();
 }

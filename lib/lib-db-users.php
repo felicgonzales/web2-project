@@ -24,6 +24,7 @@ function cariAkun($username, $password){
             }else{
                 $_SESSION["login"] = true;
                 $_SESSION["username"] = $username;
+                $_SESSION['user_id'] = $row['id'];
                 header("location: ../index.php");
                 exit;
             }
