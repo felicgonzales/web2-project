@@ -16,7 +16,7 @@
             document.getElementById("rdBox").innerHTML = this.responseText;
         }
         };
-        xmlhttp.open("GET", 'getStudio.php?id='+lokasi+"&film_id="+film_id, true);
+        xmlhttp.open("GET", 'getStudio.php?id='+lokasi+"&film_id="+film_id, true);  
         xmlhttp.send();
     }
     function getDate(studio) {

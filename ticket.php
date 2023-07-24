@@ -1,5 +1,6 @@
 <?php
     require_once "lib/lib-login.php";
+    require_once "lib/lib-db-film.php";
     $user_id = $_SESSION['user_id'];
     $data = panggilInvoice($user_id);
 ?>
@@ -41,7 +42,26 @@
         }
         ?>
     </div>
-
+    <div class="purchase-cont">
+      <div class="his-cont">
+        <h1 class="his-1"> History</h1>
+        
+        <div class="ticket-show">
+        <?php 
+                    foreach($data as $rows){
+                ?>
+          <div class="tix-1">
+            <img src="<?= $row['foto']; ?>" alt="" />
+            <p><?=$row['nama_film']; ?><br />Animation - 122m<br />VIP 1<br />17.55 - 19.57</p>
+            <p class="code">Your code is <br />3E423A</p>
+            <button class="ticket-1" onclick="window.location.href = 'qr-code.html';">Qr Code</button>
+          </div>
+          <?php
+                    }
+                ?>
+        </div>
+      </div>
+    </div>
     <!-- Bagian - - Footer -->
     <div class="bag-footer">
         <?php include"php/footer.php";?>
@@ -49,5 +69,7 @@
 
     <!-- Script JS -->
     <script src="js/navbar-login.js"></script>
+
+    
 </body>
 </html>
