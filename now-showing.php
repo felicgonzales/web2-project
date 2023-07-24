@@ -44,21 +44,7 @@
         ?>
         </div>
 <!-- Bagian 2 - Now Showing  -->
-<div class="bag-02">
-      <div class="dropdown">
-        <div class="select">
-          <span class="selected">Sun Plaza</span>
-          <div class="caret"></div>
-        </div>
-        <ul class="menu">
-          <li class="active">Sun Plaza</li>
-          <li>Thamrin Plaza</li>
-          <li>Centre Point</li>
-          <li>Lipo Mall</li>
-          <li>Delipark</li>
-          <li>Medan Fair</li>
-        </ul>
-      </div>
+
       <div class="now-show" id="now_playing">
         <h2 class="text2">NOW SHOWING</h2>
       </div>
