@@ -3,6 +3,8 @@
     require_once "lib/lib-db-film.php";
     $user_id = $_SESSION['user_id'];
     $data = panggilInvoice($user_id);
+    var_dump($data);
+Die;
 ?>
 
 <!DOCTYPE html>
@@ -45,11 +47,11 @@
     <div class="purchase-cont">
       <div class="his-cont">
         <h1 class="his-1"> History</h1>
-        
-        <div class="ticket-show">
         <?php 
-                    foreach($data as $rows){
+                    foreach($data as $row){
                 ?>
+        <div class="ticket-show">
+        
           <div class="tix-1">
             <img src="<?= $row['foto']; ?>" alt="" />
             <p><?=$row['nama_film']; ?><br />Animation - 122m<br />VIP 1<br />17.55 - 19.57</p>
